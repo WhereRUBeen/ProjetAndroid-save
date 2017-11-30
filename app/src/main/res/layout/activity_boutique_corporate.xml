@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.arsene.mamieclafoutisandroid.BoutiqueCorporate"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Boutique"
+        android:textColor="@color/textColor"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        android:textSize="30sp"/>
+
+    <!-- layout selection catégorie-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/marginTop">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Catégories"
+            android:textColor="@color/textColor"
+            android:layout_weight="1"
+            android:layout_marginLeft="35dp"/>
+
+        <Spinner
+            android:id="@+id/spinnerBoutiqueCategorieCorp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_marginRight="15dp">
+
+        </Spinner>
+    </LinearLayout>
+    <!--Layout liste view-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ListView
+                android:id="@+id/boutiqueCorpListView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </ListView>
+
+        </ScrollView>
+    </LinearLayout>
+
+</LinearLayout>

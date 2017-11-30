@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+
+    <!--image produit, nom et prix-->
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Produit"
+            android:textColor="@color/textColor"
+            android:gravity="center"/>
+
+        <ImageView
+            android:id="@+id/boutiqueProduitImgView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop"/>
+
+        <TextView
+            android:id="@+id/boutiqueProduitNomTxtView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="baguette"
+            android:textColor="@color/textColor"/>
+        <TextView
+            android:id="@+id/textViewBoutiquePrixProd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Prix : 5.50$"
+            android:textColor="@color/textColor"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quantité"
+            android:textColor="@color/textColor"/>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/marginTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/bttnBoutiqueAjoutQuantiteProd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:textColor="@color/textColor"/>
+            <TextView
+                android:id="@+id/textViewBoutiqueQuantiteProd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@color/textColor"/>
+            <Button
+                android:id="@+id/bttnBoutiqueSoustraitQuantiteProd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textColor="@color/textColor"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Prix total"
+            android:textColor="@color/textColor"/>
+
+        <TextView
+            android:layout_marginTop="@dimen/marginTop"
+            android:id="@+id/textViewBoutiquePrixTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="16.50 $"
+            android:textColor="@color/textColor"/>
+
+        <Button
+            android:id="@+id/bttnBoutiqueAjouterProd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ajouter"/>
+
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

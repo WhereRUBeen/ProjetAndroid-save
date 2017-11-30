@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.arsene.mamieclafoutisandroid.InscriptionActivity"
+    android:orientation="vertical">
+
+
+
+    <TextView
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/inscription"
+        android:gravity="center"
+        android:textSize="@dimen/textSize"
+        android:textColor="@color/textColor"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nom"
+            android:textColor="@color/textColor"
+            android:layout_weight="1"
+            android:layout_marginLeft="35dp"
+            />
+        <EditText
+            android:id="@+id/inputNom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textColor"
+            android:layout_weight="2"
+            android:layout_marginRight="15dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Prenom"
+            android:textColor="@color/textColor"
+            android:layout_marginLeft="@dimen/marginLeft"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:id="@+id/inputPrenom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/marginRight"
+            android:layout_weight="3"
+            android:textColor="@color/textColor" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Poste"
+            android:textColor="@color/textColor"
+            android:layout_marginLeft="@dimen/marginLeft"
+            android:layout_weight="1"/>
+
+        <Spinner
+            android:id="@+id/spinnerPoste"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/marginRight"
+            android:layout_weight="2">
+
+        </Spinner>
+
+
+
+
+    </LinearLayout>
+
+
+        <Button
+            android:id="@+id/bttnSoumettreInscription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Soumettre"
+            android:layout_marginTop="50dp"
+            android:textColor="@color/textColor"
+            android:layout_gravity="center_horizontal"
+            />
+
+
+
+</LinearLayout>
