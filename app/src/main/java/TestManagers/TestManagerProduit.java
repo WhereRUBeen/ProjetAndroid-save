@@ -1,5 +1,7 @@
 package TestManagers;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 import entities.Produit;
@@ -18,7 +20,12 @@ public class TestManagerProduit {
         for(Produit p : prods){
             lesProduits.add(p);
         }
+        System.out.println("taille :"+ lesProduits);
+        Log.d("taille testMan",lesProduits.size()+"");
+        Log.d("taille testMan",lesProduits.get(1).getNom()+"");
     }
+
+    
     public static ArrayList<Produit> getAll(){
             return lesProduits;
     }

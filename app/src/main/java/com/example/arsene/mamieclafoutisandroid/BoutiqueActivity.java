@@ -23,7 +23,11 @@ public class BoutiqueActivity extends Activity {
         setContentView(R.layout.activity_boutique);
         ctx = this;
 
+        taille = (TextView) findViewById(R.id.testMan);
         produits = new ArrayList<>();
+
+       // taille.setText("taille"+ TestManagerProduit.getAll().size());
+
 
       //  produits = TestManagerProduit.getAll();
       //  System.out.println("taille array "+ produits.size()+"  ");
