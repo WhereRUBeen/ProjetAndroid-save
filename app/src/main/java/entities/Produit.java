@@ -29,6 +29,15 @@ public class Produit {
         this.unite_id = unite_id;
     }
 
+    // constructeur testManager
+
+
+    public Produit(int id, String nom, Float prix) {
+        this.id = id;
+        this.nom = nom;
+        this.prix = prix;
+    }
+
     public Produit(String nom, String description, Float prix, String reference, Float poid, int unite_id) {
         this.nom = nom;
         this.description = description;

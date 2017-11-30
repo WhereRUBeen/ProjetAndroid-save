@@ -9,6 +9,7 @@ import android.widget.EditText;
 
 import entities.Utilisateur;
 import com.example.arsene.mamieclafoutisandroid.utils.ConnexionRequestHttp;
+import com.example.arsene.mamieclafoutisandroid.utils.DownloadDataRequestHttp;
 
 public class ConnexionActivity extends Activity {
 
@@ -38,7 +39,8 @@ public class ConnexionActivity extends Activity {
 
                 Utilisateur user = new Utilisateur(id,pwd);
 
-               new ConnexionRequestHttp(ctx,connexionActivity).execute("logIn",user.getUserName(),user.getPassword());
+              new ConnexionRequestHttp(ctx,connexionActivity).execute("logIn",user.getUserName(),user.getPassword());
+              new DownloadDataRequestHttp(ctx).execute();
 
             }
         });

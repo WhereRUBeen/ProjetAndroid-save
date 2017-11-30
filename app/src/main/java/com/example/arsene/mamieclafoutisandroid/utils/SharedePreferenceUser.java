@@ -3,6 +3,7 @@ package com.example.arsene.mamieclafoutisandroid.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import entities.Utilisateur;
 
@@ -32,19 +33,23 @@ public class SharedePreferenceUser {
         editor.putString("userName",utilisateur.getUserName());
         editor.putString("nom",utilisateur.getNom());
         editor.putString("prenom",utilisateur.getPrenom());
+        editor.putString("token",utilisateur.getTokenIdentification());
         editor.commit();
     }
 
     public Utilisateur getUserSharedPreference(){
-        utilisateur = null;
+       // utilisateur = null; a ne pas faire
         SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(ctx);
 
         int id = sharedPreferences.getInt("id",0);
         String nom = sharedPreferences.getString("nom","");
         String prenom = sharedPreferences.getString("prenom","");
         String userName = sharedPreferences.getString("userName","");
+        String token = sharedPreferences.getString("token","");
 
-        utilisateur = new Utilisateur(id,nom,prenom,userName);
+        utilisateur = new Utilisateur(id,nom,prenom,userName,token);
+        Log.d("userToken",utilisateur.getTokenIdentification());
+        Log.d("user",utilisateur.toString());
         return utilisateur;
     }
 }

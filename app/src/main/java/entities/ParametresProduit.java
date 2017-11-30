@@ -8,8 +8,17 @@ import java.io.Serializable;
 
 public class ParametresProduit implements Serializable{
     private String url;
-    private String produitJsonType;
-    private String parametreList;
+    private Produit produitJsonType;
+    private Parametre parametreList;
+    private String token;
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 
     public String getUrl() {
         return url;
@@ -19,19 +28,19 @@ public class ParametresProduit implements Serializable{
         this.url = url;
     }
 
-    public String getProduitJsonType() {
+    public Produit getProduitJsonType() {
         return produitJsonType;
     }
 
-    public void setProduitJsonType(String produitJsonType) {
+    public void setProduitJsonType(Produit produitJsonType) {
         this.produitJsonType = produitJsonType;
     }
 
-    public String getParametreList() {
+    public Parametre getParametreList() {
         return parametreList;
     }
 
-    public void setParametreList(String parametreList) {
+    public void setParametreList(Parametre parametreList) {
         this.parametreList = parametreList;
     }
 }

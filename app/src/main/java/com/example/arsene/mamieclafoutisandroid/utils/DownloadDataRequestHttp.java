@@ -4,6 +4,9 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 
@@ -16,7 +19,14 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
+import TestManagers.TestManagerProduit;
+import entities.Parametre;
+import entities.ParametresProduit;
+import entities.Produit;
+import managers.Manager_Produit;
 import services.C;
 
 /**
@@ -35,9 +45,23 @@ public class DownloadDataRequestHttp extends AsyncTask<String,Long,String>{
         HttpURLConnection connection = null;
         StringBuilder sb = new StringBuilder();
 
-        String requestURL = C.adresseIp; // A COMPLETER
+        String requestURL = C.urlGetProduits115; // A COMPLETER
 
         URL url = null;
+        Gson gson = new Gson();
+
+        ParametresProduit p = new ParametresProduit();
+        Parametre param = new Parametre();
+
+        //param.setIdParam("categorieId");
+        //param.setValeurParam("3");
+
+        p.setUrl("displayproduit");
+        p.setToken(new SharedePreferenceUser(ctx).getUserSharedPreference().getTokenIdentification());
+       // p.setUrl("displayproduitCategorie");
+        p.setParametreList(param);
+
+        String requete = gson.toJson(p);
 
         try {
             url = new URL(requestURL);
@@ -49,7 +73,8 @@ public class DownloadDataRequestHttp extends AsyncTask<String,Long,String>{
             connection.setDoOutput(true);
             OutputStream os = connection.getOutputStream();
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os,"UTF-8"));
-            writer.write("");
+            Log.d("test",requete);
+            writer.write(requete);
             writer.flush();
             writer.close();
 
@@ -76,22 +101,39 @@ public class DownloadDataRequestHttp extends AsyncTask<String,Long,String>{
 
     @Override
     protected void onPostExecute(String s) {
-        Log.d("get","onPostExecute "+ s);
+        Log.d("test","onPostExecute "+ s);
+
+
+
 
         if (!s.equals("")){
-            JSONArray jsonArray = null;  // pour recuperer les donnnées
+          Gson gson = new Gson();
 
             if (!s.equals("-1")){
 
-                try {
-                    jsonArray = new JSONArray(s);
-                    // recuperer les arraylists d'objets seront leur index
-                    //
-                    //
-                    //
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+               //List<Produit> lesProduits;
+                 //lesProduits = gson.fromJson(s,Produit.class);
+
+                Produit[] lesProds =gson.fromJson(s,Produit[].class);
+                Log.d("prod", lesProds.length+"");
+                ArrayList<Produit> testproduit = new ArrayList<Produit>();
+
+
+                TypeToken<ArrayList<Produit>> token = new TypeToken<ArrayList<Produit>>(){};
+                testproduit = gson.fromJson(s,token.getType());
+
+                System.out.println("taille testProduit"+ testproduit.size());
+                Log.d("taille", testproduit.size()+"");
+
+               // for (int i = 0; i < lesProds.length;i++){
+                  //  testproduit
+                    //lesProduits.add(lesProds[i]);
+                   // Manager_Produit.insert(ctx,lesProds[i]);
+                 //   TestManagerProduit.init(lesProds[i]);
+
+              //  }
+               // Log.d("prod",lesProduits.size()+"");
+
             }
 
         }

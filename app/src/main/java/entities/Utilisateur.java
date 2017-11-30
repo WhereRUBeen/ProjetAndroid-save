@@ -48,11 +48,12 @@ public class Utilisateur {
     }
 
     // pour le sharedPreference
-    public Utilisateur(int id, String nom, String prenom, String userName) {
+    public Utilisateur(int id, String nom, String prenom, String userName, String tokenIdentification) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
         this.userName = userName;
+        this.tokenIdentification = tokenIdentification;
     }
 
     //getters and setters
