@@ -12,14 +12,15 @@ public class TestManagerProduit {
 
     private static ArrayList<Produit> lesProduits;
 
-    public static void init(Produit produit){
-        lesProduits = new ArrayList<>();
-        lesProduits.add(new Produit(produit.getId(),produit.getNom(),produit.getPrix()));
-    }
 
+    public static void insert(ArrayList<Produit> prods){
+        lesProduits = new ArrayList<>();
+        for(Produit p : prods){
+            lesProduits.add(p);
+        }
+    }
     public static ArrayList<Produit> getAll(){
             return lesProduits;
-
     }
 
 
