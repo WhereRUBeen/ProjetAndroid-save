@@ -47,6 +47,14 @@ public class Utilisateur {
         this.tokenIdentification = tokenIdentification;
     }
 
+    // pour le sharedPreference
+    public Utilisateur(int id, String nom, String prenom, String userName) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.userName = userName;
+    }
+
     //getters and setters
     public int getId() {
         return id;
