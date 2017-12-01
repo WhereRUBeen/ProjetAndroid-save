@@ -10,9 +10,9 @@ public class C {
 
     public static String urlGetProduits="http://192.168.15.117:8080/mamie_clafoutis_Projet_final/GestionProduitMobile";
 
-    public static String adresseIp115="http://192.168.15.115:8080/mamie_clafoutis_Projet_final/";
+    public static String adresseIp78="http://192.168.15.78:8080/mamie_clafoutis_Projet_final/";
 
-    public static String urlGetProduits115="http://192.168.15.115:8080/mamie_clafoutis_Projet_final/GestionProduitMobile";
+    public static String urlGetProduits78="http://192.168.15.78:8080/mamie_clafoutis_Projet_final/GestionProduitMobile";
 
     public static String urlSendCommande="http://192.168.15.117:8080/mamie_clafoutis_Projet_final/";
     public static String urlSendCommande115="http://192.168.15.115:8080/mamie_clafoutis_Projet_final/";

@@ -55,23 +55,23 @@ public class BoutiqueActivity extends Activity {
                 dialog.show();
 
                 // get les composants
-                ImageView img1 = (ImageView) findViewById(R.id.image1);
-                ImageView img2 = (ImageView) findViewById(R.id.image2);
-                ImageView img3 = (ImageView) findViewById(R.id.image3);
-                ImageView img4 = (ImageView) findViewById(R.id.image4);
+                ImageView img1 = (ImageView) dialog.findViewById(R.id.image1);
+                ImageView img2 = (ImageView) dialog.findViewById(R.id.image2);
+                ImageView img3 = (ImageView) dialog.findViewById(R.id.image3);
+                ImageView img4 = (ImageView) dialog.findViewById(R.id.image4);
 
-                TextView nom = (TextView) findViewById(R.id.actProd_nom);
-                TextView categorie = (TextView) findViewById(R.id.actProd_categorie);
-                TextView prix = (TextView) findViewById(R.id.actProd_prix);
-                TextView poids = (TextView) findViewById(R.id.actProd_poix);
-                TextView unite = (TextView) findViewById(R.id.actProd_unite);
-                TextView description = (TextView) findViewById(R.id.actProd_desc);
-                TextView recette = (TextView) findViewById(R.id.actProd_recette);
+                TextView nom = (TextView) dialog.findViewById(R.id.actProd_nom);
+                TextView categorie = (TextView) dialog.findViewById(R.id.actProd_categorie);
+                TextView prix = (TextView) dialog.findViewById(R.id.actProd_prix);
+                TextView poids = (TextView) dialog.findViewById(R.id.actProd_poix);
+                TextView unite = (TextView) dialog.findViewById(R.id.actProd_unite);
+                TextView description = (TextView) dialog.findViewById(R.id.actProd_desc);
+                TextView recette = (TextView) dialog.findViewById(R.id.actProd_recette);
 
-                Button bttnAjoutQuantite = (Button) findViewById(R.id.ajoutQuantite);
-                Button bttnEnleveQuantite = (Button) findViewById(R.id.enleveQuantite);
-                Button ajoutPanier = (Button) findViewById(R.id.ajoutPanier);
-                TextView afficheQuantite = (TextView) findViewById(R.id.afficheQuantite);
+                Button bttnAjoutQuantite = (Button) dialog.findViewById(R.id.ajoutQuantite);
+                Button bttnEnleveQuantite = (Button) dialog.findViewById(R.id.enleveQuantite);
+                Button ajoutPanier = (Button) dialog.findViewById(R.id.ajoutPanier);
+                TextView afficheQuantite = (TextView) dialog.findViewById(R.id.afficheQuantite);
                 // set les composants
                 //les images
                 //
