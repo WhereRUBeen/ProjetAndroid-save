@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -15,7 +16,9 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 
+import entities.Categorie;
 import services.C;
 
 /**
@@ -78,18 +81,19 @@ public class CategoriesRequestHttp extends AsyncTask<String, Long,String>{
         Log.d("Get","onPostExecute : "+ s);
 
         if (!s.equals("")){
-
-            Gson gson = null;  // pour recuperer le gson
-
+            Gson gson = new Gson();
             if (!s.equals("-1")){
 
-                gson = new Gson();
-                //  A Completer
-                //
-                //
-                //
-                //
-                //
+                Categorie[] lesCatégories = gson.fromJson(s,Categorie[].class);
+
+                Log.d("categore",lesCatégories.length+"");
+                TypeToken<ArrayList<Categorie>> token = new TypeToken<ArrayList<Categorie>>(){};
+                ArrayList<Categorie> testCategories = new ArrayList<>();
+
+
+
+
+
 
             }
         }

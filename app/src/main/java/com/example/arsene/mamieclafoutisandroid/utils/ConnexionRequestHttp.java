@@ -125,7 +125,8 @@ public class ConnexionRequestHttp extends AsyncTask<String, Long, String>{
 
                 Log.d("token enregistre", new SharedePreferenceUser(ctx).getUserSharedPreference().getTokenIdentification());
 
-                new DownloadDataRequestHttp(ctx).execute(utilisateur.getTokenIdentification());
+                new DownloadDataRequestHttp(ctx).execute(utilisateur.getTokenIdentification()); // get les produits
+                new CategoriesRequestHttp(ctx).execute(); // get les catégories
                // Log.d("",new SharedePreferenceUser(ctx,utilisateur).saveSharedPreference())
                 Intent intent = new Intent();
                 intent.setClass(ctx, BoutiqueActivity.class);
