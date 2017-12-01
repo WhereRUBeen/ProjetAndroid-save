@@ -81,8 +81,8 @@ public class CommandeActivity extends AppCompatActivity {
 
                 for (Produit p : lesProduits){
 
-                    Commande laCommande = new Commande(-1,preferenceUser.getUserSharedPreference().getId(), produit.getId(),
-                            produit.getQuantite());
+                    Commande laCommande = new Commande(-1,preferenceUser.getUserSharedPreference().getId(), p.getId(),
+                            p.getQuantite());
                     lesCommandes.add(laCommande);
                 }
 
