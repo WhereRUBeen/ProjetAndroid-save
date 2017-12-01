@@ -84,15 +84,9 @@ public class CommandeActivity extends AppCompatActivity {
                     Commande laCommande = new Commande(-1,preferenceUser.getUserSharedPreference().getId(), produit.getId(),
                             produit.getQuantite());
                     lesCommandes.add(laCommande);
-
-
-                   // new CommandesToServer(ctx,laCommande);
-
                 }
 
-
-
-
+                new CommandesToServer(ctx,lesCommandes);
             }
         });
     }
