@@ -40,7 +40,7 @@ public class ConnexionActivity extends Activity {
                 Utilisateur user = new Utilisateur(id,pwd);
 
               new ConnexionRequestHttp(ctx,connexionActivity).execute("logIn",user.getUserName(),user.getPassword());
-              new DownloadDataRequestHttp(ctx).execute();
+
 
             }
         });

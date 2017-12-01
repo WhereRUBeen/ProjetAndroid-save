@@ -29,6 +29,8 @@ public class SharedePreferenceUser {
     }
 
     public void saveSharedPreference(){
+        editor.clear();
+        editor.commit();
         editor.putInt("id",utilisateur.getId());
         editor.putString("userName",utilisateur.getUserName());
         editor.putString("nom",utilisateur.getNom());
@@ -51,5 +53,14 @@ public class SharedePreferenceUser {
         Log.d("userToken",utilisateur.getTokenIdentification());
         Log.d("user",utilisateur.toString());
         return utilisateur;
+    }
+
+    public static void updateToken(Context ctx, String token){
+        SharedPreferences sharedPreferences =PreferenceManager.getDefaultSharedPreferences(ctx);;
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+
+        editor.putString("token",token);
+        editor.commit();
     }
 }

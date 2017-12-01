@@ -116,13 +116,16 @@ public class ConnexionRequestHttp extends AsyncTask<String, Long, String>{
                 Utilisateur utilisateur = gson.fromJson(s,Utilisateur.class);
                 Log.d("test","login user "+utilisateur.getUserName());
 
-                Log.d("token", utilisateur.getTokenIdentification());
+                Log.d("token1", utilisateur.getTokenIdentification());
                 // save l'utilisateur dans sharedPreference
-                //new SharedePreferenceUser(ctx,utilisateur).saveSharedPreference(); mauvaise pratique
-                SharedePreferenceUser sharedePreferenceUser = new SharedePreferenceUser(ctx,utilisateur);
-                sharedePreferenceUser.saveSharedPreference();
+                new SharedePreferenceUser(ctx,utilisateur).saveSharedPreference(); //mauvaise pratique
+               // SharedePreferenceUser sharedePreferenceUser = new SharedePreferenceUser(ctx,utilisateur);
+                SharedePreferenceUser.updateToken(ctx,utilisateur.getTokenIdentification());
 
 
+                Log.d("token enregistre", new SharedePreferenceUser(ctx).getUserSharedPreference().getTokenIdentification());
+
+                new DownloadDataRequestHttp(ctx).execute(utilisateur.getTokenIdentification());
                // Log.d("",new SharedePreferenceUser(ctx,utilisateur).saveSharedPreference())
                 Intent intent = new Intent();
                 intent.setClass(ctx, BoutiqueActivity.class);

@@ -61,7 +61,9 @@ public class DownloadDataRequestHttp extends AsyncTask<String,Long,String>{
         p.setUrl("displayproduit");
 
         // par ID
-        p.setToken(new SharedePreferenceUser(ctx).getUserSharedPreference().getTokenIdentification());
+        p.setToken(strings[0]);
+
+        Log.d("token envoye", new SharedePreferenceUser(ctx).getUserSharedPreference().getTokenIdentification() );
        // p.setUrl("displayproduitCategorie");
        // p.setParametreList(param);
 
