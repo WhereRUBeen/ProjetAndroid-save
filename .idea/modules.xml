@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MamieClafoutisAndroid.iml" filepath="$PROJECT_DIR$/MamieClafoutisAndroid.iml" />
       <module fileurl="file://E:\Desktop\projetmamieclafoutie\MamieClafoutisAndroid\MamieClafoutisAndroid.iml" filepath="E:\Desktop\projetmamieclafoutie\MamieClafoutisAndroid\MamieClafoutisAndroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProjetAndroid-save.iml" filepath="$PROJECT_DIR$/ProjetAndroid-save.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://E:\Desktop\projetmamieclafoutie\MamieClafoutisAndroid\app\app.iml" filepath="E:\Desktop\projetmamieclafoutie\MamieClafoutisAndroid\app\app.iml" />
     </modules>
