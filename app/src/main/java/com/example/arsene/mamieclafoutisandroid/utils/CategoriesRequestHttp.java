@@ -89,12 +89,14 @@ public class CategoriesRequestHttp extends AsyncTask<String, Long,String>{
                 Log.d("categore",lesCatégories.length+"");
                 TypeToken<ArrayList<Categorie>> token = new TypeToken<ArrayList<Categorie>>(){};
                 ArrayList<Categorie> testCategories = new ArrayList<>();
+                testCategories = gson.fromJson(s,token.getType());
+
+                for ( Categorie c : testCategories){
 
 
 
-
-
-
+                }
+                
             }
         }
     }
