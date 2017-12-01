@@ -53,13 +53,17 @@ public class DownloadDataRequestHttp extends AsyncTask<String,Long,String>{
         ParametresProduit p = new ParametresProduit();
         Parametre param = new Parametre();
 
-      //  param.setIdParam("categorieId");
-      //  param.setValeurParam("3");
+        // par Id
+       // param.setIdParam("categorieId");
+     //  param.setValeurParam("3");
 
+       // toutes
         p.setUrl("displayproduit");
+
+        // par ID
         p.setToken(new SharedePreferenceUser(ctx).getUserSharedPreference().getTokenIdentification());
        // p.setUrl("displayproduitCategorie");
-      //  p.setParametreList(param);
+       // p.setParametreList(param);
 
         String requete = gson.toJson(p);
 
@@ -122,19 +126,11 @@ public class DownloadDataRequestHttp extends AsyncTask<String,Long,String>{
                 testproduit = gson.fromJson(s,token.getType());
 
 
-               // System.out.println("taille testProduit"+ testproduit.size());
-               Log.d("taille", testproduit.size()+"");
+
+                // System.out.println("taille testProduit"+ testproduit.size());
+                Log.d("taille", testproduit.size()+"");
 
                 TestManagerProduit.insert(testproduit);
-
-               // for (int i = 0; i < lesProds.length;i++){
-                  //  testproduit
-                    //lesProduits.add(lesProds[i]);
-                   // Manager_Produit.insert(ctx,lesProds[i]);
-                 //   TestManagerProduit.init(lesProds[i]);
-
-              //  }
-               // Log.d("prod",lesProduits.size()+"");
 
             }
 

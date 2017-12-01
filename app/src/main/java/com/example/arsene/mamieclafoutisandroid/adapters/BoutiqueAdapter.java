@@ -34,6 +34,8 @@ public class BoutiqueAdapter extends ArrayAdapter<Produit> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
+        Produit p = getItem(position);
+
         if (convertView == null){
             LayoutInflater inflater =LayoutInflater.from(ctx);
             convertView = inflater.inflate(layoutId, null);
@@ -56,6 +58,11 @@ public class BoutiqueAdapter extends ArrayAdapter<Produit> {
         // button ajouter
         Button bttnAjouter = convertView.findViewById(R.id.bttnBoutiqueAjouterProd);
 
+
+        // set les composants
+        // image
+        textViewNomProduit.setText(p.getNom());
+        textViewPrixProduit.setText(p.getPrix()+"");
 
 
 

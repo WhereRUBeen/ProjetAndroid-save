@@ -10,8 +10,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class GestionBase extends SQLiteOpenHelper {
 
+    Context ctx;
     public GestionBase(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
+        this.ctx = context;
     }
 
     private static final String queryDropEtablissement = "DROP TABLE IF EXISTS" + C.Etablissement.nomTable + ";";
@@ -68,18 +70,48 @@ public class GestionBase extends SQLiteOpenHelper {
             C.Role_etablissement.type_id + " INTEGER PRIMARY KEY AUTOINCREMENT , " +
             C.Role_etablissement.role_id + " TEXT);";
 
+
+    private static final String queryCreateUtilisateur = "CREATE TABLE "+  C.Utilisateur.nomTable + " ("+
+            C.Utilisateur.id + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
+            C.Utilisateur.nom + " TEXT, "+
+            C.Utilisateur.prenom +" TEXT, "+
+            C.Utilisateur.etablissement+ " TEXT, "+
+            C.Utilisateur.role+ " TEXT, "+
+            C.Utilisateur.userName+" TEXT, "+
+            C.Utilisateur.password+" TEXT, "+
+            C.Utilisateur.isVisible+" TEXT, "+
+            C.Utilisateur.tokenIdentification+" TEXT, "+
+            C.Utilisateur.tokenInscription+"Text);";
+
+
+    private static final String queryCreateProduit = "CREATE TABLE "+ C.Produit.nomTable+ " ("+
+            C.Produit.id + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
+            C.Produit.nom + " TEXT, "+
+            C.Produit.categorie +" TEXT, "+
+            C.Produit.description+" TEXT, "+
+            C.Produit.prix+" REAL, "+
+            C.Produit.estvisible+" TEXT, "+
+            C.Produit.reference+" TEXT, "+
+            C.Produit.poid+" REAL, "+
+            C.Produit.unite+" TEXT);";
+
     @Override
     public void onCreate(SQLiteDatabase bd) {
         bd.execSQL(queryCreateEtablissement);
         bd.execSQL(queryCreateAdresse);
         bd.execSQL(queryCreateType);
        // bd.execSQL(queryCreateRole);
+        bd.execSQL(queryCreateUtilisateur);
         bd.execSQL(queryCreateRoleEtablissement);
+        bd.execSQL(queryCreateProduit);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase bd, int i, int i1) {
 
+        bd.execSQL(queryDropProduit);
+        bd.execSQL(queryDropUtilisateur);
+        onCreate(bd);
     }
 }
 

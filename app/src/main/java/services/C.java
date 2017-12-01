@@ -22,6 +22,9 @@ public class C {
         public static final String nomTable = "utilisateur";
         public static final String id = "id";
         public static final String nom = "nom";
+        public static final String prenom = "prenom";
+        public static final String role = "role";
+        public static final String etablissement = "etablissement";
         public static final String etablissement_id = "etablissement_id";
         public static final String role_id = "role_id";
         public static final String userName = "userName";
@@ -110,13 +113,15 @@ public class C {
              public static final String nomTable = "produit";
              public static final String id = "id";
              public static final String nom = "nom";
+             public static final String categorie = "categorie";
              public static final String categorie_id = "categorie_id";
              public static final String description = "description";
              public static final String prix = "prix";
-             public static final String estvisible = "estvisible";
+             public static final String estvisible = "estVisible";
              public static final String reference = "reference";
              public static final String poid = "poid";
              public static final String unite_id = "unite_id";
+             public static final String unite = "unite";
          }
 
          public static final class Src_image {
