@@ -43,7 +43,7 @@ public class BoutiqueActivity extends Activity {
         testproduits = Manager_Produit.getAll(ctx);
         Log.d("testproduit Taille",testproduits.size() +"");
 
-        boutiqueLv.setAdapter(adapter);
+        boutiqueLv.setAdapter(adapter);// on passe les produits dans notre adapatateur;
         boutiqueLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
