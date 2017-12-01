@@ -48,16 +48,12 @@ public class CommandeAdapter extends ArrayAdapter<Produit> {
         TextView textViewNomProduit = convertView.findViewById(R.id.cmdProduitNomTxtView);
         TextView textViewPrixProduit = convertView.findViewById(R.id.cmdProduitPrixTxtView);
 
-        // buttons ajout/soustraction et text view quantite
-        Button bttnAjoutQuantite = convertView.findViewById(R.id.cmdQuantiteAjout);
-        Button bttnSoustraitQuantite = convertView.findViewById(R.id.cmdQuantiteSupp);
-        TextView textViewQuantite = convertView.findViewById(R.id.cmdQuantiteTxtView);
-
         // text view prix total commande
         TextView textViewPrixTotal = convertView.findViewById(R.id.cmdPrixTotalTextView);
 
         // button retirer commande
         Button bttnRetirerCommande = convertView.findViewById(R.id.retirerCommande);
+
 
 
         return convertView;

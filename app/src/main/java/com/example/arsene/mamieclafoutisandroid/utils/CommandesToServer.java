@@ -18,6 +18,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 
 import entities.Commande;
 import services.C;
@@ -29,9 +30,10 @@ import services.C;
 public class CommandesToServer extends AsyncTask<String,Long,String> {
     Context ctx;
     Commande laCommande;
-    public CommandesToServer(Context ctx, Commande laCommande) {
+    ArrayList<Commande> lesCommandes;
+    public CommandesToServer(Context ctx, ArrayList<Commande> lesCommandes ) {
         this.ctx = ctx;
-        this.laCommande = laCommande;
+        this.lesCommandes = lesCommandes;
     }
 
     @Override
@@ -40,14 +42,14 @@ public class CommandesToServer extends AsyncTask<String,Long,String> {
 
         HttpURLConnection connection = null;
         StringBuilder sb = new StringBuilder();
-        String requestURL = C.adresseIp;  // A COMPLETER
+        String requestURL = C.urlSendCommande;  // A COMPLETER
         OutputStream out;
 
         URL url = null;
 
         try {
             Gson gson = new Gson(); // pour envoyer la commande
-            String commandeToSend = gson.toJson(laCommande);
+            String commandeToSend = gson.toJson(lesCommandes);
             url = new URL(requestURL);
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");

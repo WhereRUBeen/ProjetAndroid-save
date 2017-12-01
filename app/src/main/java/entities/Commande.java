@@ -11,6 +11,8 @@ public class Commande {
     private int utilisateur_id;
     private Long date;
     private int valide;
+    private int produit_id;
+    private int quantite;
 
     // constructeur
 
@@ -21,7 +23,32 @@ public class Commande {
         this.valide = valide;
     }
 
+    public Commande(int id, int utilisateur_id, int produit_id, int quantite) {
+        this.id = id;
+        this.utilisateur_id = utilisateur_id;
+        this.produit_id = produit_id;
+        this.quantite = quantite;
+    }
+
     // getters et setters
+
+
+    public int getProduit_id() {
+        return produit_id;
+    }
+
+    public void setProduit_id(int produit_id) {
+        this.produit_id = produit_id;
+    }
+
+    public int getQuantite() {
+        return quantite;
+    }
+
+    public void setQuantite(int quantite) {
+        this.quantite = quantite;
+    }
+
     public int getId() {
         return id;
     }

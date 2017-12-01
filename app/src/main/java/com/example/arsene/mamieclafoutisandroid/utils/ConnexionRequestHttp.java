@@ -44,7 +44,7 @@ public class ConnexionRequestHttp extends AsyncTask<String, Long, String>{
         HttpURLConnection connection = null;
         StringBuilder sb = new StringBuilder();
 
-        String requestUrl = C.adresseIp115+strings[0];
+        String requestUrl = C.adresseIp+strings[0];
         Log.d("test",requestUrl);
         if (strings[2] != null){
 

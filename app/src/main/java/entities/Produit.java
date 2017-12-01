@@ -16,6 +16,7 @@ public class Produit {
     private String reference;
     private Float poid;
     private int unite_id;
+    private int quantite;
 
     public Produit(int id, String nom, int categorie_id, String description, Float prix, String reference, Float poid, int unite_id) {
         this.id = id;
@@ -58,7 +59,13 @@ public class Produit {
 //constructeur
 
 
+    public int getQuantite() {
+        return quantite;
+    }
 
+    public void setQuantite(int quantite) {
+        this.quantite = quantite;
+    }
 
     // getters and setters
     public int getId() {
