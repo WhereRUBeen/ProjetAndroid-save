@@ -41,35 +41,29 @@
         </Spinner>
     </LinearLayout>
 
-    <!--Layout liste view-->
+
+    <ListView
+        android:id="@+id/boutiqueListView"
+        android:layout_width="match_parent"
+        android:layout_height="350dp">
+
+    </ListView>
+
+
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+        <Button
+            android:id="@+id/bttnMaCommande"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Ma Commande" />
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
-            <ListView
-                android:id="@+id/boutiqueListView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-            </ListView>
-
-        </ScrollView>
     </LinearLayout>
-
-   <TextView
-       android:id="@+id/testTaille"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content" />
-    <Button
-        android:id="@+id/bttnMaCommande"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ma Commande"
-        android:layout_gravity="center"/>
 
 </LinearLayout>

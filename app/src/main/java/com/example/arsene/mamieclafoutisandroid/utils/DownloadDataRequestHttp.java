@@ -22,6 +22,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import TestManagers.TestManagerCommande;
 import TestManagers.TestManagerProduit;
 import entities.Parametre;
 import entities.ParametresProduit;
@@ -109,9 +110,6 @@ public class DownloadDataRequestHttp extends AsyncTask<String,Long,String>{
     protected void onPostExecute(String s) {
         Log.d("test","onPostExecute "+ s);
 
-
-
-
         if (!s.equals("")){
           Gson gson = new Gson();
 
@@ -120,7 +118,7 @@ public class DownloadDataRequestHttp extends AsyncTask<String,Long,String>{
                //List<Produit> lesProduits;
                  //lesProduits = gson.fromJson(s,Produit.class);
 
-                Produit[] lesProds =gson.fromJson(s,Produit[].class);
+                Produit[] lesProds = gson.fromJson(s,Produit[].class);
                 Log.d("prod", lesProds.length+"");
                 ArrayList<Produit> testproduit = new ArrayList<Produit>();
 
@@ -128,11 +126,18 @@ public class DownloadDataRequestHttp extends AsyncTask<String,Long,String>{
                 testproduit = gson.fromJson(s,token.getType());
 
 
-
                 // System.out.println("taille testProduit"+ testproduit.size());
                 Log.d("taille", testproduit.size()+"");
 
-                TestManagerProduit.insert(testproduit);
+                //TestManagerProduit.insert(testproduit);
+
+                /*for (Produit p : testproduit) {
+
+                    Manager_Produit.insert(ctx,p);
+                    Log.d("nos produit", p.toString());
+
+                }*/
+
 
             }
 

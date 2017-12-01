@@ -19,7 +19,7 @@ public class C {
 
 
 
-    public static final String nombd = "";
+    public static final String nombd = "mamiebd";
 
 
 
@@ -118,7 +118,7 @@ public class C {
              public static final String nomTable = "produit";
              public static final String id = "id";
              public static final String nom = "nom";
-             public static final String categorie = "categorie";
+            // public static final String categorie = "categorie";
              public static final String categorie_id = "categorie_id";
              public static final String description = "description";
              public static final String prix = "prix";
@@ -126,7 +126,7 @@ public class C {
              public static final String reference = "reference";
              public static final String poid = "poid";
              public static final String unite_id = "unite_id";
-             public static final String unite = "unite";
+             //public static final String unite = "unite";
          }
 
          public static final class Src_image {

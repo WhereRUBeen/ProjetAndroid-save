@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 
 import entities.Produit;
+import services.C;
 import services.ConnexionBd;
 import com.example.arsene.mamieclafoutisandroid.utils.Mydb;
 
@@ -20,14 +21,14 @@ public class Manager_Produit {
 
     public static void insert(Context ctx, Produit produit) {
         ContentValues cv = new ContentValues();
-        cv.put(Mydb.Produit.id, produit.getId());
-        cv.put(Mydb.Produit.nom, produit.getNom());
-        cv.put(Mydb.Produit.categorieid, produit.getCategorie_id());
-        cv.put(Mydb.Produit.description, produit.getDescription());
-        cv.put(Mydb.Produit.prix, produit.getPrix());
-        cv.put(Mydb.Produit.poid, produit.getPoid());
-        cv.put(Mydb.Produit.reference, produit.getReference());//
-        cv.put(Mydb.Produit.unite_id, produit.getUnite_id());
+        cv.put(C.Produit.id, produit.getId());
+        cv.put(C.Produit.nom, produit.getNom());
+        cv.put(C.Produit.categorie_id, produit.getCategorie_id());
+        cv.put(C.Produit.description, produit.getDescription());
+        cv.put(C.Produit.prix, produit.getPrix());
+        cv.put(C.Produit.poid, produit.getPoid());
+        cv.put(C.Produit.reference, produit.getReference());//
+        cv.put(C.Produit.unite_id, produit.getUnite_id());
 
 
 

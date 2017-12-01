@@ -5,6 +5,7 @@ import android.content.Context;
 
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -20,11 +21,13 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 
  import entities.Produit;
+import managers.Manager_Produit;
 
 
 public class BoutiqueActivity extends Activity {
     Context ctx;
     ArrayList<Produit> lesProduits;
+    ArrayList<Produit> testproduits;
     ListView boutiqueLv;
     BoutiqueAdapter adapter;
 
@@ -35,9 +38,12 @@ public class BoutiqueActivity extends Activity {
         ctx = this;
         lesProduits = new ArrayList<>();
         boutiqueLv = (ListView) findViewById(R.id.boutiqueListView);
-        adapter = new BoutiqueAdapter(ctx,R.layout.boutique_view,lesProduits);
+        adapter = new BoutiqueAdapter(ctx,R.layout.boutique_view,Manager_Produit.getAll(ctx));
+        testproduits = new ArrayList<>();
+        testproduits = Manager_Produit.getAll(ctx);
+        Log.d("testproduit Taille",testproduits.size() +"");
 
-
+        boutiqueLv.setAdapter(adapter);
         boutiqueLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

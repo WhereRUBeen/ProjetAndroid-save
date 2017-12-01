@@ -20,9 +20,9 @@ public class GestionBase extends SQLiteOpenHelper {
     private static final String queryDropAdresse = "DROP TABLE IF EXISTS" + C.Adresse.nomTable + ";";
     private static final String queryDroptype = "DROP TABLE IF EXISTS" + C.Type.nomTable + ";";
     private static final String queryDropRole = "DROP TABLE IF EXISTS" + C.Role.nomTable + ";";
-    private static final String queryDropRoleEtablissement = "DROP TABLE IF EXISTS" + C.Role_etablissement.nomTable + ";";
-    private static final String queryDropUtilisateur = "DROP TABLE IF EXISTS" + C.Utilisateur.nomTable + ";";
-    private static final String queryDropProduit = "DROP TABLE IF EXISTS" + C.Produit.nomTable + ";";
+    private static final String queryDropRoleEtablissement = "DROP TABLE IF EXISTS " + C.Role_etablissement.nomTable + ";";
+    private static final String queryDropUtilisateur = "DROP TABLE IF EXISTS " + C.Utilisateur.nomTable + ";";
+    private static final String queryDropProduit = "DROP TABLE IF EXISTS " + C.Produit.nomTable + ";";
     private static final String queryDropIngredient = "DROP TABLE IF EXISTS" + C.Ingredient.nomTable + ";";
     private static final String queryDropCategorie = "DROP TABLE IF EXISTS" + C.Categorie.nomTable + ";";
     private static final String queryDropSrcImage = "DROP TABLE IF EXISTS" + C.Src_image.nomTable + ";";
@@ -87,22 +87,22 @@ public class GestionBase extends SQLiteOpenHelper {
     private static final String queryCreateProduit = "CREATE TABLE "+ C.Produit.nomTable+ " ("+
             C.Produit.id + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
             C.Produit.nom + " TEXT, "+
-            C.Produit.categorie +" TEXT, "+
+            C.Produit.categorie_id +" TEXT, "+
             C.Produit.description+" TEXT, "+
             C.Produit.prix+" REAL, "+
             C.Produit.estvisible+" TEXT, "+
             C.Produit.reference+" TEXT, "+
             C.Produit.poid+" REAL, "+
-            C.Produit.unite+" TEXT);";
+            C.Produit.unite_id +" TEXT);";
 
     @Override
     public void onCreate(SQLiteDatabase bd) {
-        bd.execSQL(queryCreateEtablissement);
-        bd.execSQL(queryCreateAdresse);
-        bd.execSQL(queryCreateType);
+        //bd.execSQL(queryCreateEtablissement);
+        //bd.execSQL(queryCreateAdresse);
+        //bd.execSQL(queryCreateType);
        // bd.execSQL(queryCreateRole);
-        bd.execSQL(queryCreateUtilisateur);
-        bd.execSQL(queryCreateRoleEtablissement);
+        //bd.execSQL(queryCreateUtilisateur);
+        //bd.execSQL(queryCreateRoleEtablissement);
         bd.execSQL(queryCreateProduit);
     }
 
@@ -110,7 +110,6 @@ public class GestionBase extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase bd, int i, int i1) {
 
         bd.execSQL(queryDropProduit);
-        bd.execSQL(queryDropUtilisateur);
         onCreate(bd);
     }
 }

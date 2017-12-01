@@ -30,7 +30,7 @@ public class TestManagerProduit {
 
         System.out.println("taille proooooood:"+ lesProduits);
         Log.d("taille testMan",lesProduits.size()+"");  // ça marche
-        Log.d("taille testMan",lesProduits.get(1).getNom()+""); // ça marche
+        Log.d("taille testMan",lesProduits.get(4).getNom()+""); // ça marche
     }
 
 
