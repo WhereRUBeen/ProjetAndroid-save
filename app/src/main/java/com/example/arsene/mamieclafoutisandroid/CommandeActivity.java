@@ -62,9 +62,15 @@ public class CommandeActivity extends AppCompatActivity {
                 });
 
 
-                // cree alertdialog
+                // cree alertdialog builder
                 AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
                 LayoutInflater inflater = LayoutInflater.from(ctx);
+                builder.setTitle("Détails Produit");
+                builder.setView(inflater.inflate(R.layout.details_produit,null));
+
+                // cree alertdialog
+                AlertDialog dialog = builder.create();
+                dialog.show();
 
             }
 
