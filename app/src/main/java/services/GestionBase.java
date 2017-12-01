@@ -60,6 +60,9 @@ public class GestionBase extends SQLiteOpenHelper {
             C.Type.id + " INTEGER PRIMARY KEY AUTOINCREMENT , " +
             C.Type.denomination + " TEXT);";
 
+    private static final String queryCreateCategorie = "CREATE TABLE " + C.Type.nomTable + " (" +
+            C.Categorie.id + " INTEGER PRIMARY KEY AUTOINCREMENT , " +
+            C.Categorie.denomination + " TEXT);";
 
     private static final String queryCreateRole = "CREATE TABLE " + C.Role.nomTable + " (" +
             C.Role.id + " INTEGER PRIMARY KEY AUTOINCREMENT , " +
@@ -103,6 +106,7 @@ public class GestionBase extends SQLiteOpenHelper {
        // bd.execSQL(queryCreateRole);
         //bd.execSQL(queryCreateUtilisateur);
         //bd.execSQL(queryCreateRoleEtablissement);
+        bd.execSQL(queryCreateCategorie);
         bd.execSQL(queryCreateProduit);
     }
 
