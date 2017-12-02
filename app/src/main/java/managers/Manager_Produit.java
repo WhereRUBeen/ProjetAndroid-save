@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 
 import entities.Produit;
+import entities.Src_image;
 import services.C;
 import services.ConnexionBd;
 import com.example.arsene.mamieclafoutisandroid.utils.Mydb;
@@ -37,8 +38,6 @@ public class Manager_Produit {
 
         bd.close();
     }
-
-
 
 
     public static ArrayList<Produit> getAll(Context ctx) {

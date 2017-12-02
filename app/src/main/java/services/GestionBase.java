@@ -16,26 +16,26 @@ public class GestionBase extends SQLiteOpenHelper {
         this.ctx = context;
     }
 
-    private static final String queryDropEtablissement = "DROP TABLE IF EXISTS" + C.Etablissement.nomTable + ";";
-    private static final String queryDropAdresse = "DROP TABLE IF EXISTS" + C.Adresse.nomTable + ";";
-    private static final String queryDroptype = "DROP TABLE IF EXISTS" + C.Type.nomTable + ";";
-    private static final String queryDropRole = "DROP TABLE IF EXISTS" + C.Role.nomTable + ";";
+    private static final String queryDropEtablissement = "DROP TABLE IF EXISTS " + C.Etablissement.nomTable + ";";
+    private static final String queryDropAdresse = "DROP TABLE IF EXISTS " + C.Adresse.nomTable + ";";
+    private static final String queryDroptype = "DROP TABLE IF EXISTS " + C.Type.nomTable + ";";
+    private static final String queryDropRole = "DROP TABLE IF EXISTS " + C.Role.nomTable + ";";
     private static final String queryDropRoleEtablissement = "DROP TABLE IF EXISTS " + C.Role_etablissement.nomTable + ";";
     private static final String queryDropUtilisateur = "DROP TABLE IF EXISTS " + C.Utilisateur.nomTable + ";";
     private static final String queryDropProduit = "DROP TABLE IF EXISTS " + C.Produit.nomTable + ";";
-    private static final String queryDropIngredient = "DROP TABLE IF EXISTS" + C.Ingredient.nomTable + ";";
+    private static final String queryDropIngredient = "DROP TABLE IF EXISTS " + C.Ingredient.nomTable + ";";
     private static final String queryDropCategorie = "DROP TABLE IF EXISTS " + C.Categorie.nomTable + ";";
-    private static final String queryDropSrcImage = "DROP TABLE IF EXISTS" + C.Src_image.nomTable + ";";
-    private static final String queryDropLigneIngredient = "DROP TABLE IF EXISTS" + C.Ligne_ingredient.nomTable + ";";
-    private static final String queryDropProduitPatte = "DROP TABLE IF EXISTS" + C.Produit_patte.nomTable + ";";
-    private static final String queryDropUnite = "DROP TABLE IF EXISTS" + C.Unite.nomTable + ";";
-    private static final String queryDropIngredientPatte = "DROP TABLE IF EXISTS" + C.Ingredient_patte.nomTable + ";";
-    private static final String queryDropPatte = "DROP TABLE IF EXISTS" + C.Patte.nomTable + ";";
-    private static final String queryDropProduction = "DROP TABLE IF EXISTS" + C.Production.nomTable + ";";
-    private static final String queryDropCommande = "DROP TABLE IF EXISTS" + C.Commande.nomTable + ";";
-    private static final String queryDropCommeandeInterne = "DROP TABLE IF EXISTS" + C.Commande_interne.nomTable + ";";
-    private static final String queryDropVente = "DROP TABLE IF EXISTS" + C.Ventes.nomTable + ";";
-    private static final String queryDropProduitPropose = "DROP TABLE IF EXISTS" + C.Produit_propose.nomTable + ";";
+    private static final String queryDropLigneIngredient = "DROP TABLE IF EXISTS " + C.Ligne_ingredient.nomTable + ";";
+    private static final String queryDropProduitPatte = "DROP TABLE IF EXISTS " + C.Produit_patte.nomTable + ";";
+    private static final String queryDropUnite = "DROP TABLE IF EXISTS " + C.Unite.nomTable + ";";
+    private static final String queryDropIngredientPatte = "DROP TABLE IF EXISTS " + C.Ingredient_patte.nomTable + ";";
+    private static final String queryDropPatte = "DROP TABLE IF EXISTS " + C.Patte.nomTable + ";";
+    private static final String queryDropProduction = "DROP TABLE IF EXISTS " + C.Production.nomTable + ";";
+    private static final String queryDropCommande = "DROP TABLE IF EXISTS " + C.Commande.nomTable + ";";
+    private static final String queryDropCommeandeInterne = "DROP TABLE IF EXISTS " + C.Commande_interne.nomTable + ";";
+    private static final String queryDropVente = "DROP TABLE IF EXISTS " + C.Ventes.nomTable + ";";
+    private static final String queryDropProduitPropose = "DROP TABLE IF EXISTS " + C.Produit_propose.nomTable + ";";
+    private static final String queryDropSrcImagemage = "DROP TABLE IF EXISTS " + C.Src_image.nomTable + ";";
 
 
     private static final String queryCreateEtablissement = "CREATE TABLE " + C.Etablissement.nomTable + " (" +
@@ -124,6 +124,7 @@ public class GestionBase extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase bd, int i, int i1) {
 
         bd.execSQL(queryDropCategorie);
+        bd.execSQL(queryDropSrcImagemage);
         bd.execSQL(queryDropProduit);
         onCreate(bd);
     }

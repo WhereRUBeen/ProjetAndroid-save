@@ -28,7 +28,10 @@ import java.util.ArrayList;
 
 import TestManagers.TestManagerProduit;
 import entities.Produit;
+<<<<<<< Updated upstream
 import managers.ManagerProduitPanier;
+=======
+>>>>>>> Stashed changes
 import managers.Manager_Produit;
 
 
@@ -71,8 +74,8 @@ public class BoutiqueActivity extends Activity {
         lesProduits = new ArrayList<>();
         boutiqueLv = (ListView) findViewById(R.id.boutiqueListView);
         testproduits = new ArrayList<>();
-       // testproduits = Manager_Produit.getAll(ctx);
-        testproduits = TestManagerProduit.getAll();
+        testproduits = Manager_Produit.getAll(ctx);
+        //testproduits = TestManagerProduit.getAll();
         adapter = new BoutiqueAdapter(ctx,R.layout.boutique_view,testproduits);
 
         Log.d("testproduit Taille",testproduits.size() +"");

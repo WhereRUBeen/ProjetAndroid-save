@@ -40,7 +40,7 @@ public class CategoriesRequestHttp extends AsyncTask<String, Long,String>{
         HttpURLConnection connection = null;
         StringBuilder sb = new StringBuilder();
 
-        String requestURL = C.urlGetCategorie; // A COMPLETER
+        String requestURL = C.urlGetCategorieBU; // A COMPLETER
         Gson gson = new Gson();
 
         ParametresProduit p = new ParametresProduit();
@@ -108,7 +108,9 @@ public class CategoriesRequestHttp extends AsyncTask<String, Long,String>{
                     Log.d("nos produit", c.toString());
                     Log.d("nos produit", c.getDenomination());
 
+
                 }
+                Log.d("nos produit",  ManagerCategorie.getAll(ctx).size() + "");
 
             }
         }

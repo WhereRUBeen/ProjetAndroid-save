@@ -125,9 +125,15 @@ public class ConnexionRequestHttp extends AsyncTask<String, Long, String>{
 
                 Log.d("token enregistre", new SharedePreferenceUser(ctx).getUserSharedPreference().getTokenIdentification());
 
+<<<<<<< Updated upstream
                 new DownloadDataRequestHttp(ctx).execute(utilisateur.getTokenIdentification()); // get les produits
                  // new CategoriesRequestHttp(ctx).execute(utilisateur.getTokenIdentification()); // get les catégories
                  // Log.d("",new SharedePreferenceUser(ctx,utilisateur).saveSharedPreference())
+=======
+               //new DownloadDataRequestHttp(ctx).execute(utilisateur.getTokenIdentification()); // get les produits
+                new CategoriesRequestHttp(ctx).execute(utilisateur.getTokenIdentification()); // get les catégories
+               // Log.d("",new SharedePreferenceUser(ctx,utilisateur).saveSharedPreference())
+>>>>>>> Stashed changes
                 Intent intent = new Intent();
                 intent.setClass(ctx, BoutiqueActivity.class);
                 ctx.startActivity(intent);
@@ -144,7 +150,7 @@ public class ConnexionRequestHttp extends AsyncTask<String, Long, String>{
             }
         }
         else {
-            Toast.makeText(ctx, "Erreur de connéxion à la base de donnée.", Toast.LENGTH_LONG).show();
+            Toast.makeText(ctx, "Erreur de connexion à la base de donnée.", Toast.LENGTH_LONG).show();
         }
 
     }

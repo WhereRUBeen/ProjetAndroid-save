@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteDatabase;
 public class ConnexionBd {
 
     private static SQLiteDatabase bd;
-    private static int versionBD = 3;
+    private static int versionBD = 8;
 
 
     public static SQLiteDatabase getBd(Context ctx){
