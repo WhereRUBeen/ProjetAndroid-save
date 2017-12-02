@@ -9,14 +9,20 @@ public class C {
     public static String adresseIp="http://192.168.15.117:8080/mamie_clafoutis_Projet_final/";
 
     public static String urlGetProduits="http://192.168.15.117:8080/mamie_clafoutis_Projet_final/GestionProduitMobile";
+    public static String urlGetProduitsBU="http://172.16.42.139:8080/mamie_clafoutis_Projet_final/GestionProduitMobile";
 
     public static String adresseIp78="http://192.168.15.78:8080/mamie_clafoutis_Projet_final/";
+    public static String adresseIp78BU="http://172.16.42.139:8080/mamie_clafoutis_Projet_final/";
     public static String urlGetCategorie="http://192.168.15.78:8080/mamie_clafoutis_Projet_final/AffichageCategorie";
+    public static String urlGetCategorieBU="http://172.16.42.139:8080/mamie_clafoutis_Projet_final/AffichageCategorie";
 
     public static String urlGetProduits78="http://192.168.15.78:8080/mamie_clafoutis_Projet_final/GestionProduitMobile";
+    public static String urlGetProduits78BU="http://172.16.42.139:8080/mamie_clafoutis_Projet_final/GestionProduitMobile";
 
     public static String urlSendCommande="http://192.168.15.117:8080/mamie_clafoutis_Projet_final/";
+    public static String urlSendCommandebu="http://172.16.42.139:8080/mamie_clafoutis_Projet_final/";
     public static String urlSendCommande115="http://192.168.15.115:8080/mamie_clafoutis_Projet_final/";
+    public static String urlSendCommande115bu="http://172.16.42.139:8080/mamie_clafoutis_Projet_final/";
 
 
 
