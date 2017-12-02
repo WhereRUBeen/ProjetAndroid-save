@@ -19,9 +19,15 @@ public class ManagerCategorie {
 
     public static void insert(Context ctx, Categorie categorie){
         ContentValues cv = new ContentValues();
+
+        cv.put(C.Categorie.id,categorie.getId());
         cv.put(C.Categorie.denomination,categorie.getDenomination());
+
+
         SQLiteDatabase bd = ConnexionBd.getBd(ctx);
+
         bd.insert(C.Categorie.nomTable,null,cv);
+        bd.close();
     }
 
     public static ArrayList<Categorie> getAll(Context ctx){

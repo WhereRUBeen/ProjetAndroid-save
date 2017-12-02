@@ -1,6 +1,7 @@
 package entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * Created by mayammouarangue on 30/11/17.
@@ -9,8 +10,17 @@ import java.io.Serializable;
 public class ParametresProduit implements Serializable{
     private String url;
     private Produit produitJsonType;
+    private ArrayList<Produit> lesProduits;
     private Parametre parametreList;
     private String token;
+
+    public ArrayList<Produit> getLesProduits() {
+        return lesProduits;
+    }
+
+    public void setLesProduits(ArrayList<Produit> lesProduits) {
+        this.lesProduits = lesProduits;
+    }
 
     public String getToken() {
         return token;

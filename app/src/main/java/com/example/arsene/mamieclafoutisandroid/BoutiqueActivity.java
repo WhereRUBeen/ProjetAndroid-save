@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.arsene.mamieclafoutisandroid.adapters.BoutiqueAdapter;
@@ -37,6 +38,26 @@ public class BoutiqueActivity extends Activity {
     ListView boutiqueLv;
     BoutiqueAdapter adapter;
     Button bttnPanier;
+
+    // les composants du layout
+    TextView nom;
+    TextView categorie;
+    TextView prix;
+    TextView poids;
+    TextView unite;
+    TextView description;
+    TextView recette;
+
+    // button ajout et soustraction quantite
+    Button ajoutQuantite;
+    Button enleveQuantite;
+    TextView affichageQuantite;
+
+
+    // button ajouter au panier
+    Button ajouterAuPanier;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +95,63 @@ public class BoutiqueActivity extends Activity {
                 AlertDialog dialog = builder.create();
                 dialog.getWindow().setLayout(800,800);
                 dialog.show();
+
+
+                nom = (TextView) dialog.findViewById(R.id.actProd_nom);
+                categorie = (TextView) dialog.findViewById(R.id.actProd_categorie);
+                prix = (TextView) dialog.findViewById(R.id.actProd_prix);
+                poids = (TextView) dialog.findViewById(R.id.actProd_poix);
+                unite = (TextView) dialog.findViewById(R.id.actProd_unite);
+                description = (TextView) dialog.findViewById(R.id.actProd_desc);
+                recette = (TextView) dialog.findViewById(R.id.actProd_recette);
+
+                // button ajout et soustraction quantite
+                ajoutQuantite = (Button) dialog.findViewById(R.id.ajoutQuantite);
+                enleveQuantite = (Button) dialog.findViewById(R.id.enleveQuantite);
+                affichageQuantite = (TextView) dialog.findViewById(R.id.afficheQuantite);
+
+                // button ajouter au panier
+                ajouterAuPanier = (Button) dialog.findViewById(R.id.ajoutPanierDialog);
+
+
+                // set les composants
+                nom.setText(p.getNom());
+
+                //ajout quantite produit
+                ajoutQuantite.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(ctx, "+", Toast.LENGTH_LONG).show();
+
+                        // addition quantite
+                        //affichageQuantite.setText();
+                    }
+                });
+
+                // soustraction quantite produit
+                enleveQuantite.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(ctx, "-", Toast.LENGTH_LONG).show();
+
+                        // retrait quantite
+                        //affichageQuantite.setText();
+
+                    }
+                });
+
+                // ajout au panier
+                ajouterAuPanier.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(ctx, "Your Message", Toast.LENGTH_LONG).show();
+
+
+
+                    }
+                });
+
+
 
 
             }

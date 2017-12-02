@@ -24,7 +24,7 @@ public class GestionBase extends SQLiteOpenHelper {
     private static final String queryDropUtilisateur = "DROP TABLE IF EXISTS " + C.Utilisateur.nomTable + ";";
     private static final String queryDropProduit = "DROP TABLE IF EXISTS " + C.Produit.nomTable + ";";
     private static final String queryDropIngredient = "DROP TABLE IF EXISTS" + C.Ingredient.nomTable + ";";
-    private static final String queryDropCategorie = "DROP TABLE IF EXISTS" + C.Categorie.nomTable + ";";
+    private static final String queryDropCategorie = "DROP TABLE IF EXISTS " + C.Categorie.nomTable + ";";
     private static final String queryDropSrcImage = "DROP TABLE IF EXISTS" + C.Src_image.nomTable + ";";
     private static final String queryDropLigneIngredient = "DROP TABLE IF EXISTS" + C.Ligne_ingredient.nomTable + ";";
     private static final String queryDropProduitPatte = "DROP TABLE IF EXISTS" + C.Produit_patte.nomTable + ";";
@@ -67,7 +67,7 @@ public class GestionBase extends SQLiteOpenHelper {
             C.Type.id + " INTEGER PRIMARY KEY AUTOINCREMENT , " +
             C.Type.denomination + " TEXT);";
 
-    private static final String queryCreateCategorie = "CREATE TABLE " + C.Type.nomTable + " (" +
+    private static final String queryCreateCategorie = "CREATE TABLE " + C.Categorie.nomTable+ " (" +
             C.Categorie.id + " INTEGER PRIMARY KEY AUTOINCREMENT , " +
             C.Categorie.denomination + " TEXT);";
 
@@ -113,6 +113,7 @@ public class GestionBase extends SQLiteOpenHelper {
        // bd.execSQL(queryCreateRole);
         //bd.execSQL(queryCreateUtilisateur);
         //bd.execSQL(queryCreateRoleEtablissement);
+
         bd.execSQL(queryCreateCategorie);
         bd.execSQL(queryCreateImage);
         bd.execSQL(queryCreateProduit);
@@ -122,6 +123,7 @@ public class GestionBase extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase bd, int i, int i1) {
 
+        bd.execSQL(queryDropCategorie);
         bd.execSQL(queryDropProduit);
         onCreate(bd);
     }

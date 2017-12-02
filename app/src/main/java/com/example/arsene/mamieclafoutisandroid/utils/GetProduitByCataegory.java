@@ -127,7 +127,7 @@ public class GetProduitByCataegory extends AsyncTask<String,Long,String>{
                 // System.out.println("taille testProduit"+ testproduit.size());
                 Log.d("taille", testproduit.size()+"");
 
-                TestManagerProduit.insert(testproduit);
+               // TestManagerProduit.insert(testproduit);
 
             }
 

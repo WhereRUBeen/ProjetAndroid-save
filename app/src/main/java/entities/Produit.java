@@ -32,7 +32,6 @@ public class Produit {
 
     // constructeur testManager
 
-
     public Produit(int id, String nom, Float prix) {
         this.id = id;
         this.nom = nom;
@@ -46,6 +45,12 @@ public class Produit {
         this.reference = reference;
         this.poid = poid;
         this.unite_id = unite_id;
+    }
+
+    // constructeur commande
+    public Produit(int id, int quantite) {
+        this.id = id;
+        this.quantite = quantite;
     }
 
     public int getCategorie_id() {

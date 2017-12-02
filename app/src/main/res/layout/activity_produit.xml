@@ -128,7 +128,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/ajoutPanier"
+            android:id="@+id/ajoutPanierDialog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ajouter au panier"

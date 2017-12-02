@@ -19,6 +19,9 @@ import java.net.URL;
 import java.util.ArrayList;
 
 import entities.Categorie;
+import entities.Parametre;
+import entities.ParametresProduit;
+import managers.ManagerCategorie;
 import services.C;
 
 /**
@@ -37,7 +40,15 @@ public class CategoriesRequestHttp extends AsyncTask<String, Long,String>{
         HttpURLConnection connection = null;
         StringBuilder sb = new StringBuilder();
 
-        String requestURL = C.adresseIp; // A COMPLETER
+        String requestURL = C.urlGetCategorie; // A COMPLETER
+        Gson gson = new Gson();
+
+        ParametresProduit p = new ParametresProduit();
+        Parametre param = new Parametre();
+
+        p.setUrl("getallcategories");
+        p.setToken(strings[0]);
+        String requete = gson.toJson(p);
 
         URL url = null;
 
@@ -51,7 +62,7 @@ public class CategoriesRequestHttp extends AsyncTask<String, Long,String>{
             connection.setDoOutput(true);
             OutputStream os = connection.getOutputStream();
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os,"UTF-8"));
-            writer.write(""); // A COMPLETER
+            writer.write(requete); // A COMPLETER
             writer.flush();
             writer.close();
 
@@ -93,10 +104,12 @@ public class CategoriesRequestHttp extends AsyncTask<String, Long,String>{
 
                 for ( Categorie c : testCategories){
 
-
+                    ManagerCategorie.insert(ctx,c);
+                    Log.d("nos produit", c.toString());
+                    Log.d("nos produit", c.getDenomination());
 
                 }
-                
+
             }
         }
     }

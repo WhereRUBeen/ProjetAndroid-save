@@ -11,6 +11,7 @@ public class C {
     public static String urlGetProduits="http://192.168.15.117:8080/mamie_clafoutis_Projet_final/GestionProduitMobile";
 
     public static String adresseIp78="http://192.168.15.78:8080/mamie_clafoutis_Projet_final/";
+    public static String urlGetCategorie="http://192.168.15.78:8080/mamie_clafoutis_Projet_final/AffichageCategorie";
 
     public static String urlGetProduits78="http://192.168.15.78:8080/mamie_clafoutis_Projet_final/GestionProduitMobile";
 

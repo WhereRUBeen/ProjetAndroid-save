@@ -1,5 +1,6 @@
 package com.example.arsene.mamieclafoutisandroid;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -19,7 +20,7 @@ import java.util.ArrayList;
 import entities.Commande;
 import entities.Produit;
 
-public class CommandeActivity extends AppCompatActivity {
+public class CommandeActivity extends Activity {
 
     Context ctx;
     ListView commandeListView;

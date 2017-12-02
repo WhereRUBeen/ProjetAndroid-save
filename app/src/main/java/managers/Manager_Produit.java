@@ -33,7 +33,7 @@ public class Manager_Produit {
 
 
         SQLiteDatabase bd = ConnexionBd.getBd(ctx);
-        bd.insert(Mydb.Produit.tablename, null, cv);
+        bd.insert(C.Produit.nomTable, null, cv);
 
         bd.close();
     }

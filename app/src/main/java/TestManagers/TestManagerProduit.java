@@ -16,7 +16,7 @@ public class TestManagerProduit {
 
     private static ArrayList<Produit> lesProduits;
 
-
+/*
     public static void insert(ArrayList<Produit> prods){
 
          lesProduits = new ArrayList<>();
@@ -33,32 +33,23 @@ public class TestManagerProduit {
         Log.d("taille testMan",lesProduits.get(4).getNom()+""); // ça marche
     }
 
+*/
+    public static void init(){
 
+        lesProduits = new ArrayList<>();
+        lesProduits.add(new Produit(1,"pain",Float.parseFloat("39.9922")));
+        lesProduits.add(new Produit(1,"baguette",Float.parseFloat("39.9922")));
+        lesProduits.add(new Produit(1,"croissant",Float.parseFloat("39.9922")));
+    }
     public static ArrayList<Produit> getAll(){
 
-        ArrayList<Produit> prod = new ArrayList<>();
 
-        if (prod == null) {
-            for (Produit p : lesProduits) {
-                prod.add(p);
-            }
-        }
+        if (lesProduits == null)
+            init();
 
-        return prod;
+        return lesProduits;
     }
 
 
-    public static ArrayList<Produit> getArray(Produit [] tab){
 
-        ArrayList<Produit> retour = new ArrayList<>();
-        Produit []test= new Produit[tab.length];
-
-        for (int i=0; i<tab.length; i++){
-            for (int j=0; j< tab.length; j++){
-                test[j]= tab[i];
-            }
-            retour.add(test[i]);
-        }
-        return retour;
-    }
 }
