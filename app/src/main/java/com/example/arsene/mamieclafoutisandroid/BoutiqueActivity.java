@@ -53,6 +53,8 @@ public class BoutiqueActivity extends Activity {
     Button enleveQuantite;
     TextView affichageQuantite;
 
+    Produit produitCourrant;
+
 
     // button ajouter au panier
     Button ajouterAuPanier;
@@ -78,8 +80,9 @@ public class BoutiqueActivity extends Activity {
         boutiqueLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Produit p = (Produit) adapterView.getItemAtPosition(i);
-                Toast.makeText(ctx, p.getNom(), Toast.LENGTH_SHORT).show();
+
+                produitCourrant = (Produit) adapterView.getItemAtPosition(i);
+                Toast.makeText(ctx, produitCourrant.getNom(), Toast.LENGTH_SHORT).show();
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
                 builder.setTitle("Ajouter au panier");
@@ -115,7 +118,7 @@ public class BoutiqueActivity extends Activity {
 
 
                 // set les composants
-                nom.setText(p.getNom());
+                nom.setText(produitCourrant.getNom());
 
                 //ajout quantite produit
                 ajoutQuantite.setOnClickListener(new View.OnClickListener() {
@@ -145,6 +148,9 @@ public class BoutiqueActivity extends Activity {
                     @Override
                     public void onClick(View view) {
                         Toast.makeText(ctx, "Your Message", Toast.LENGTH_LONG).show();
+
+                       Produit produit = new Produit(produitCourrant.getId(),produitCourrant.getQuantite());
+
 
 
 
