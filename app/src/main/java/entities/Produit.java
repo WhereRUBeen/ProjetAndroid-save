@@ -8,7 +8,6 @@ public class Produit {
     //attributs
     private int id;
     private String nom;
-   // private Categorie categorie;
     private int categorie_id;
     private String description;
     private Float prix;

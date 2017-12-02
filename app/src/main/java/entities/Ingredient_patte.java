@@ -9,14 +9,14 @@ public class Ingredient_patte {
     private int ingredient_id;
     private int patte_id;
     private String quantite;
-    private String unite;
 
     //contructeur
-    public Ingredient_patte(int ingredient_id, int patte_id, String quantite, String unite) {
+
+
+    public Ingredient_patte(int ingredient_id, int patte_id, String quantite) {
         this.ingredient_id = ingredient_id;
         this.patte_id = patte_id;
         this.quantite = quantite;
-        this.unite = unite;
     }
 
     // getters et setters
@@ -44,11 +44,5 @@ public class Ingredient_patte {
         this.quantite = quantite;
     }
 
-    public String getUnite() {
-        return unite;
-    }
 
-    public void setUnite(String unite) {
-        this.unite = unite;
-    }
 }

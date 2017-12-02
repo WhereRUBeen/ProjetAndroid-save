@@ -9,14 +9,16 @@ public class Ingredient {
     private int id;
     private String denomination;
     private int quantite;
-    private int unite_ingredient;
+    private int unite_id;
+
+
 
     //constructeur Ingredient
-    public Ingredient(int id, String denomination, int quantite, int unite_ingredient) {
+    public Ingredient(int id, String denomination, int quantite, int unite_id) {
         this.id = id;
         this.denomination = denomination;
         this.quantite = quantite;
-        this.unite_ingredient = unite_ingredient;
+        this.unite_id = unite_id;
     }
 
     // getters et setters
@@ -44,11 +46,12 @@ public class Ingredient {
         this.quantite = quantite;
     }
 
-    public int getUnite_ingredient() {
-        return unite_ingredient;
+
+    public int getUnite_id() {
+        return unite_id;
     }
 
-    public void setUnite_ingredient(int unite_ingredient) {
-        this.unite_ingredient = unite_ingredient;
+    public void setUnite_id(int unite_id) {
+        this.unite_id = unite_id;
     }
 }

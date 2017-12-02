@@ -1,10 +1,12 @@
 package entities;
 
+import java.io.Serializable;
+
 /**
  * Created by mayammouarangue on 27/11/17.
  */
 
-public class Type_Etablissement {
+public class Type_Etablissement implements Serializable{
     private int id;
     private String type;
 
