@@ -56,6 +56,13 @@ public class GestionBase extends SQLiteOpenHelper {
             C.Adresse.code_postale + " TEXT , " +
             C.Adresse.pays + " TEXT);";
 
+
+    private static final String queryCreateImage = "CREATE TABLE " + C.Src_image.nomTable + " (" +
+            C.Src_image.id + " INTEGER PRIMARY KEY AUTOINCREMENT , " +
+            C.Src_image.src_image_taille_mobile + " TEXT , " +
+            C.Src_image.produit_id + " TEXT);";
+
+
     private static final String queryCreateType = "CREATE TABLE " + C.Type.nomTable + " (" +
             C.Type.id + " INTEGER PRIMARY KEY AUTOINCREMENT , " +
             C.Type.denomination + " TEXT);";
@@ -107,7 +114,9 @@ public class GestionBase extends SQLiteOpenHelper {
         //bd.execSQL(queryCreateUtilisateur);
         //bd.execSQL(queryCreateRoleEtablissement);
         bd.execSQL(queryCreateCategorie);
+        bd.execSQL(queryCreateImage);
         bd.execSQL(queryCreateProduit);
+
     }
 
     @Override
