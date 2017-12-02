@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.arsene.mamieclafoutisandroid.R;
 
@@ -34,7 +35,7 @@ public class CommandeAdapter extends ArrayAdapter<Produit> {
     @Override
     public View getView(int position,View convertView,ViewGroup parent) {
         // le produit
-        Produit produit = getItem(position);
+        final Produit produit = getItem(position);
 
 
         if (convertView == null){
@@ -54,8 +55,24 @@ public class CommandeAdapter extends ArrayAdapter<Produit> {
         // button retirer commande
         Button bttnRetirerCommande = convertView.findViewById(R.id.retirerCommande);
 
+        // set les composants
+        textViewNomProduit.setText(produit.getNom());
+        textViewPrixProduit.setText(produit.getPrix()+"");
 
 
+
+
+        bttnRetirerCommande.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(ctx, "click", Toast.LENGTH_LONG).show();
+
+                remove(produit);
+            }
+        });
+
+
+        
         return convertView;
     }
 

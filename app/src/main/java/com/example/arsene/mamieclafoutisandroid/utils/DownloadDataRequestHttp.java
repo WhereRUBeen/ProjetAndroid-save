@@ -46,7 +46,7 @@ public class DownloadDataRequestHttp extends AsyncTask<String,Long,String>{
         HttpURLConnection connection = null;
         StringBuilder sb = new StringBuilder();
 
-        String requestURL = C.urlGetProduits78; // A COMPLETER
+        String requestURL = C.urlGetCategorieBU; // A COMPLETER
 
         URL url = null;
         Gson gson = new Gson();

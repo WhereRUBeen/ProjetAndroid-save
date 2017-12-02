@@ -15,23 +15,15 @@
         android:textSize="@dimen/textSize"
         android:gravity="center"
         android:layout_marginTop="@dimen/marginTop"/>
-    <LinearLayout
+
+    <ListView
+        android:id="@+id/commandeListeView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="350dp">
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    </ListView>
 
-            <ListView
-                android:id="@+id/commandeListeView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
 
-            </ListView>
-        </ScrollView>
-    </LinearLayout>
     <Button
         android:id="@+id/bttnPasserCommande"
         android:layout_width="wrap_content"

@@ -21,6 +21,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 import entities.Commande;
+import entities.ParametresProduit;
 import services.C;
 
 /**
@@ -30,11 +31,27 @@ import services.C;
 public class CommandesToServer extends AsyncTask<String,Long,String> {
     Context ctx;
     Commande laCommande;
+    String UneCommande;
     ArrayList<Commande> lesCommandes;
     public CommandesToServer(Context ctx, ArrayList<Commande> lesCommandes ) {
         this.ctx = ctx;
         this.lesCommandes = lesCommandes;
     }
+
+
+    public CommandesToServer(Context ctx, String uneCommande) {
+        this.ctx = ctx;
+        UneCommande = uneCommande;
+        ParametresProduit param = new ParametresProduit();
+
+    }
+
+
+
+
+
+
+
 
     @Override
     protected String doInBackground(String... strings) {
@@ -42,7 +59,7 @@ public class CommandesToServer extends AsyncTask<String,Long,String> {
 
         HttpURLConnection connection = null;
         StringBuilder sb = new StringBuilder();
-        String requestURL = C.urlSendCommande;  // A COMPLETER
+        String requestURL = C.urlSendCommandeBibi;  // A COMPLETER
         OutputStream out;
 
         URL url = null;

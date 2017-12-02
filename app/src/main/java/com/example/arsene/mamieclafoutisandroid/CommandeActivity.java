@@ -10,15 +10,18 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.arsene.mamieclafoutisandroid.adapters.CommandeAdapter;
 import com.example.arsene.mamieclafoutisandroid.utils.CommandesToServer;
+import com.example.arsene.mamieclafoutisandroid.utils.SharedPreferenceCommande;
 import com.example.arsene.mamieclafoutisandroid.utils.SharedePreferenceUser;
 
 import java.util.ArrayList;
 
 import entities.Commande;
 import entities.Produit;
+import managers.ManagerProduitPanier;
 
 public class CommandeActivity extends Activity {
 
@@ -29,6 +32,7 @@ public class CommandeActivity extends Activity {
     ArrayList<Produit> lesProduits;
     ArrayList<Commande> lesCommandes;
     Produit produit;
+    Button retirer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,8 +43,11 @@ public class CommandeActivity extends Activity {
 
         lesCommandes = new ArrayList<>();
         lesProduits = new ArrayList<>();
+
+        lesProduits = ManagerProduitPanier.getAll();
         // initialisation commande adapter
         adapter = new CommandeAdapter(ctx,R.layout.commande_view,lesProduits);
+        commandeListView.setAdapter(adapter);
 
 
         // listener sur la list view
@@ -48,19 +55,25 @@ public class CommandeActivity extends Activity {
             @Override
             public void onItemClick(final AdapterView<?> adapterView, View view, final int i, long l) {
 
-                 produit =(Produit) adapterView.getItemAtPosition(i);
+                produit =(Produit) adapterView.getItemAtPosition(i);
 
 
                 // get button retirer Button
-                Button retirer = (Button) findViewById(R.id.retirerCommande);
+                retirer = (Button) view.findViewById(R.id.retirerCommande);
+
+
+
+
                 // retire le produit du panier
                 retirer.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         adapter.remove(produit);
+                        Toast.makeText(ctx, "Your Message", Toast.LENGTH_LONG).show();
 
                     }
                 });
+
 
 
                 // cree alertdialog builder
@@ -83,17 +96,9 @@ public class CommandeActivity extends Activity {
             @Override
             public void onClick(View view) {
 
-                SharedePreferenceUser preferenceUser = new SharedePreferenceUser(ctx);
+               // new SharedPreferenceCommande(ctx,lesProduits);
 
-
-                for (Produit p : lesProduits){
-
-                    Commande laCommande = new Commande(-1,preferenceUser.getUserSharedPreference().getId(), p.getId(),
-                            p.getQuantite());
-                    lesCommandes.add(laCommande);
-                }
-
-                new CommandesToServer(ctx,lesCommandes);
+                //new CommandesToServer(ctx,new SharedPreferenceCommande(ctx).getCommandeSharedPreference());
             }
         });
     }
