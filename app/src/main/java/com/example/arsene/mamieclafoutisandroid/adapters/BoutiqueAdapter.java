@@ -47,16 +47,7 @@ public class BoutiqueAdapter extends ArrayAdapter<Produit> {
         TextView textViewNomProduit = convertView.findViewById(R.id.boutiqueProduitNomTxtView);
         TextView textViewPrixProduit = convertView.findViewById(R.id.textViewBoutiquePrixProd);
 
-        // buttons ajout/soustraction et text view quantite
-        Button bttnAjoutQuantite = convertView.findViewById(R.id.bttnBoutiqueAjoutQuantiteProd);
-        Button bttnSoustraitQuantite = convertView.findViewById(R.id.bttnBoutiqueSoustraitQuantiteProd);
-        TextView textViewQuantite = convertView.findViewById(R.id.textViewBoutiqueQuantiteProd);
 
-        // text view prix total
-        TextView textViewPrixTotal = convertView.findViewById(R.id.textViewBoutiquePrixTotal);
-
-        // button ajouter
-        Button bttnAjouter = convertView.findViewById(R.id.bttnBoutiqueAjouterProd);
 
 
         // set les composants
