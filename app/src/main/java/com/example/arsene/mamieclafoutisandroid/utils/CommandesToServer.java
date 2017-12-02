@@ -31,7 +31,7 @@ import services.C;
 public class CommandesToServer extends AsyncTask<String,Long,String> {
     Context ctx;
     Commande laCommande;
-    String UneCommande;
+
     ArrayList<Commande> lesCommandes;
     public CommandesToServer(Context ctx, ArrayList<Commande> lesCommandes ) {
         this.ctx = ctx;
@@ -39,24 +39,22 @@ public class CommandesToServer extends AsyncTask<String,Long,String> {
     }
 
 
-    public CommandesToServer(Context ctx, String uneCommande) {
+    public CommandesToServer(Context ctx) {
         this.ctx = ctx;
-        UneCommande = uneCommande;
-        ParametresProduit param = new ParametresProduit();
 
     }
-
-
-
-
-
-
 
 
     @Override
     protected String doInBackground(String... strings) {
         String retour="";
 
+        ParametresProduit param = new ParametresProduit();
+
+        param.setUrl("soumettrecommande");
+        param.setToken(new SharedPreferenceCommande(ctx).getCommandeSharedPreference());
+
+       // param.setToken();
         HttpURLConnection connection = null;
         StringBuilder sb = new StringBuilder();
         String requestURL = C.urlSendCommandeBibi;  // A COMPLETER
@@ -66,7 +64,7 @@ public class CommandesToServer extends AsyncTask<String,Long,String> {
 
         try {
             Gson gson = new Gson(); // pour envoyer la commande
-            String commandeToSend = gson.toJson(lesCommandes);
+            String commandeToSend = gson.toJson(param);
             url = new URL(requestURL);
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");

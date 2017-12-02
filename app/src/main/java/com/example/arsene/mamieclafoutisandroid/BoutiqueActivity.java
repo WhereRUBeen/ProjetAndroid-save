@@ -148,7 +148,7 @@ public class BoutiqueActivity extends Activity {
                 ajouterAuPanier.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Toast.makeText(ctx, "Your Message", Toast.LENGTH_LONG).show();
+
                      //  Produit produit = new Produit(produitCourrant.getId(),produitCourrant.getQuantite());
 
                         ManagerProduitPanier.init(produitCourrant);

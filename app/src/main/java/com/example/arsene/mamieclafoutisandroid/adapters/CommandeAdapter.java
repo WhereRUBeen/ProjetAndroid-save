@@ -72,7 +72,7 @@ public class CommandeAdapter extends ArrayAdapter<Produit> {
         });
 
 
-        
+
         return convertView;
     }
 

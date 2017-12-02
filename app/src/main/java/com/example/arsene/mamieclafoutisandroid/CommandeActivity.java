@@ -96,9 +96,8 @@ public class CommandeActivity extends Activity {
             @Override
             public void onClick(View view) {
 
-               // new SharedPreferenceCommande(ctx,lesProduits);
-
-                //new CommandesToServer(ctx,new SharedPreferenceCommande(ctx).getCommandeSharedPreference());
+                new SharedPreferenceCommande(ctx,lesProduits);
+                new CommandesToServer(ctx);
             }
         });
     }
