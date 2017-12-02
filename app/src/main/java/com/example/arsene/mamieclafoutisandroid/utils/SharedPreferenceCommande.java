@@ -4,7 +4,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 import entities.Produit;
 
@@ -36,9 +40,13 @@ public class SharedPreferenceCommande {
 
 
     public void saveCommandeSharedPreference(){
-
-
-
+        Gson gson = new Gson();
+        String data = gson.toJson(lesProduits);
+        
+        editor.clear();
+        editor.commit();
+        editor.putString("lesCommandes",data);
+        editor.commit();
 
     }
 
