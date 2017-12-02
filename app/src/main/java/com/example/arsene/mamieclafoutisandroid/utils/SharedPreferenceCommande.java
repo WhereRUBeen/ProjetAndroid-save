@@ -42,12 +42,19 @@ public class SharedPreferenceCommande {
     public void saveCommandeSharedPreference(){
         Gson gson = new Gson();
         String data = gson.toJson(lesProduits);
-        
+
         editor.clear();
         editor.commit();
         editor.putString("lesCommandes",data);
         editor.commit();
+    }
 
+    public String getCommandeSharedPreference(){
+        SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(ctx);
+
+         String retour = sharedPreferences.getString("lesCommandes","vide");
+
+         return retour;
     }
 
 
