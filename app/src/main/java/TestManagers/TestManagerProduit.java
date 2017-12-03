@@ -5,6 +5,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
+import entities.Categorie;
 import entities.Produit;
 import managers.Manager_Produit;
 
@@ -37,9 +38,9 @@ public class TestManagerProduit {
     public static void init(){
 
         lesProduits = new ArrayList<>();
-        lesProduits.add(new Produit(1,"pain",Float.parseFloat("39.9922")));
-        lesProduits.add(new Produit(1,"baguette",Float.parseFloat("39.9922")));
-        lesProduits.add(new Produit(1,"croissant",Float.parseFloat("39.9922")));
+        lesProduits.add(new Produit(1,"pain",new Categorie(1,"bretzel"),Float.parseFloat("39.9922"),0));
+        lesProduits.add(new Produit(1,"baguette",new Categorie(2,"Pain Blanc"),Float.parseFloat("39.9922"),0));
+        lesProduits.add(new Produit(1,"croissant",new Categorie(3,"Brioche"),Float.parseFloat("39.9922"),0));
     }
 
     public static ArrayList<Produit> getAll(){

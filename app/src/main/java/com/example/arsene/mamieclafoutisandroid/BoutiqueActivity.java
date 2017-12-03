@@ -12,11 +12,13 @@ import android.util.Log;
 
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,13 +27,15 @@ import com.example.arsene.mamieclafoutisandroid.adapters.BoutiqueAdapter;
 
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import TestManagers.TestManagerProduit;
+import entities.Categorie;
 import entities.Produit;
-<<<<<<< Updated upstream
+import managers.ManagerCategorie;
 import managers.ManagerProduitPanier;
-=======
->>>>>>> Stashed changes
+
 import managers.Manager_Produit;
 
 
@@ -39,10 +43,12 @@ public class BoutiqueActivity extends Activity {
     Context ctx;
     ArrayList<Produit> lesProduits;
     ArrayList<Produit> testproduits;
+    ArrayList<Produit> selectionProduit;
+    ArrayList<Categorie> lesCategories;
     ListView boutiqueLv;
     BoutiqueAdapter adapter;
     Button bttnPanier;
-
+    String r;
     // les composants du layout
     TextView nom;
     TextView categorie;
@@ -63,6 +69,9 @@ public class BoutiqueActivity extends Activity {
     // button ajouter au panier
     Button ajouterAuPanier;
 
+    //spinner boutique
+    Spinner spinner;
+    ArrayAdapter<String> spinnerAdapter ;
 
 
     @Override
@@ -71,16 +80,86 @@ public class BoutiqueActivity extends Activity {
         setContentView(R.layout.activity_boutique);
         ctx = this;
         bttnPanier = (Button) findViewById(R.id.bttnMaCommande);
-        lesProduits = new ArrayList<>();
         boutiqueLv = (ListView) findViewById(R.id.boutiqueListView);
-        testproduits = new ArrayList<>();
-        testproduits = Manager_Produit.getAll(ctx);
-        //testproduits = TestManagerProduit.getAll();
-        adapter = new BoutiqueAdapter(ctx,R.layout.boutique_view,testproduits);
 
-        Log.d("testproduit Taille",testproduits.size() +"");
+        // les Arraylists contenant les produits
+        lesProduits = new ArrayList<Produit>();
+        //lesProduits = Manager_Produit.getAll(ctx);
+        lesProduits = TestManagerProduit.getAll();
+        selectionProduit = new ArrayList<Produit>();
+        selectionProduit.addAll(lesProduits);
+        testproduits = new ArrayList<Produit>();   // contient tous les produits de toute catégories
+       // testproduits = Manager_Produit.getAll(ctx);
+        testproduits = TestManagerProduit.getAll();
 
+        lesCategories = new ArrayList<>();
+        lesCategories = ManagerCategorie.getAll(ctx);
+        spinner = (Spinner) findViewById(R.id.spinnerBoutiqueCategorie);
+
+       // String[] categoriesTab =  new String[lesCategories.size()];
+
+
+        // get les categories
+        spinnerAdapter = new ArrayAdapter<String>(ctx,android.R.layout.simple_spinner_dropdown_item);
+
+                for (Categorie c : lesCategories) {
+                    spinnerAdapter.add(c.getDenomination());
+                }
+
+        //set l'adapter du spinner
+        spinner.setAdapter(spinnerAdapter);
+
+        Log.d("boutique","spinner set");
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                selectionProduit = new ArrayList<Produit>();
+                selectionProduit.addAll(lesProduits);
+                String selected = adapterView.getItemAtPosition(i).toString();
+                Toast.makeText(ctx, selected, Toast.LENGTH_SHORT).show();
+
+
+                System.out.println("taille initiale :"+ lesProduits.size());
+               // List<Produit> toRemove = new ArrayList<>();
+                ArrayList<Produit> toRemove = new ArrayList<>();
+
+               for (Produit p : selectionProduit){
+
+                    if (!selected.equals(p.getCategorie().getDenomination())){
+                        toRemove.add(p);
+                    }
+                }
+                System.out.println("taille toRemove :"+ toRemove.size());
+                selectionProduit.removeAll(toRemove);
+                System.out.println("nombre  produit : "+ selectionProduit.size());
+                System.out.println("nom produit: "+ selectionProduit.get(0).getCategorie().getDenomination() );
+
+               // boutiqueLv.setAdapter(adapter);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+
+
+        });
+
+        // set l'adapter du listView
+       // LinearLayout vueAdapter =
+        adapter = new BoutiqueAdapter(ctx,R.layout.boutique_view,selectionProduit);
+        System.out.println("Dans listView "+lesProduits);
+        Log.d("boutique ",testproduits.size() +"");
+        Log.d("boutique ","adapter boutique");
+
+        // set listViewAdpater
+
+       // boutiqueLv.setAdapter(null);
         boutiqueLv.setAdapter(adapter);// on passe les produits dans notre adapatateur;
+        Log.d("boutique","boutique listView");
+
         boutiqueLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

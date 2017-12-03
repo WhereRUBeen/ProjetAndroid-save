@@ -8,6 +8,7 @@ public class Produit {
     //attributs
     private int id;
     private String nom;
+    private Categorie categorie;
     private int categorie_id;
     private String description;
     private Float prix;
@@ -30,11 +31,34 @@ public class Produit {
     }
 
     // constructeur testManager
-
     public Produit(int id, String nom, Float prix) {
         this.id = id;
         this.nom = nom;
         this.prix = prix;
+    }
+
+    //constructeur testManager avec id catégorie
+    public Produit(int id, String nom, int categorie_id, Float prix) {
+        this.id = id;
+        this.nom = nom;
+        this.categorie_id = categorie_id;
+        this.prix = prix;
+    }
+
+    //constructeur testManager avec  catégorie
+    public Produit(int id, String nom, Categorie categorie, Float prix) {
+        this.id = id;
+        this.nom = nom;
+        this.categorie = categorie;
+        this.prix = prix;
+    }
+    // constructeur testManager avec catégrorie et quantite
+    public Produit(int id, String nom, Categorie categorie, Float prix, int quantite) {
+        this.id = id;
+        this.nom = nom;
+        this.categorie = categorie;
+        this.prix = prix;
+        this.quantite = quantite;
     }
 
     public Produit(String nom, String description, Float prix, String reference, Float poid, int unite_id) {
@@ -62,6 +86,14 @@ public class Produit {
 
 //constructeur
 
+
+    public Categorie getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
+    }
 
     public int getQuantite() {
         return quantite;

@@ -61,9 +61,6 @@ public class CommandeActivity extends Activity {
                 // get button retirer Button
                 retirer = (Button) view.findViewById(R.id.retirerCommande);
 
-
-
-
                 // retire le produit du panier
                 retirer.setOnClickListener(new View.OnClickListener() {
                     @Override
