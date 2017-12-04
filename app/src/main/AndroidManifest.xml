@@ -27,7 +27,8 @@
         <activity android:name=".BoutiqueCuisinie" />
         <activity android:name=".BoutiqueCorporate" />
         <activity android:name=".BoutiqueActivity" />
-        <activity android:name=".ProduitActivity"></activity>
+        <activity android:name=".ProduitActivity" />
+        <activity android:name=".ErrorActivity"></activity>
     </application>
 
 </manifest>

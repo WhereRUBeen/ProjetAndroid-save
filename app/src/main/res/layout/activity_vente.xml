@@ -6,30 +6,133 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.arsene.mamieclafoutisandroid.Vente">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ventes"
+        android:textColor="@color/colorMamierose"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        android:textSize="30sp"/>
+
+    <!-- layout selection date-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/marginTop"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:textColor="@color/colorMamierose"
+            android:layout_weight=".5"
+            android:textSize="20dp"
+            android:layout_marginLeft="20dp"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="30dp"/>
+        <Button
+            android:id="@+id/datePickerVente"
+            android:text="Date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textColor"
+            android:background="@color/colorMamierose"
+            android:layout_marginRight="@dimen/marginRight"/>
+
+
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center">
 
         <TextView
-            android:layout_width="109dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nom produit" />
+            android:text="Produits"
+            android:textStyle="bold"
+            android:textColor="@color/colorMamierose"
+            android:layout_weight="1"
+            android:textSize="20dp"/>
 
         <TextView
-            android:layout_width="83dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Matin" />
+            android:text="AM"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:textColor="@color/colorMamierose"/>
 
         <TextView
-            android:layout_width="114dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Apres-midi" />
+            android:text="PM"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_weight="1"
+            android:textColor="@color/colorMamierose"/>
 
         <TextView
-            android:layout_width="131dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Total" />
+            android:text="Total"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_weight="1"
+            android:textColor="@color/colorMamierose"/>
     </LinearLayout>
+
+
+    <ListView
+        android:id="@+id/boutiqueListView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        >
+
+    </ListView>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <Button
+            android:id="@+id/bttnAfficherVente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/colorMamierose"
+            android:text="  Afficher  "
+            android:textColor="@color/textColor"/>
+
+        <Button
+            android:id="@+id/bttnRetourVente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="50dp"
+            android:background="@color/colorMamierose"
+            android:text="  Retour  "
+            android:textColor="@color/textColor"/>
+
+
+    </LinearLayout>
+
 </LinearLayout>
