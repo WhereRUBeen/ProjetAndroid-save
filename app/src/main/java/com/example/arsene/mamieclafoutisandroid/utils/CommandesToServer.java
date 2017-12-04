@@ -7,7 +7,7 @@ import android.util.Log;
 import com.google.gson.Gson;
 
 import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -21,7 +21,10 @@ import java.net.URL;
 import java.util.ArrayList;
 
 import entities.Commande;
-import entities.ParametresProduit;
+import entities.ParametresCommande;
+
+import entities.Produit;
+
 import services.C;
 
 /**
@@ -29,42 +32,55 @@ import services.C;
  */
 
 public class CommandesToServer extends AsyncTask<String,Long,String> {
+
     Context ctx;
-    Commande laCommande;
+    ArrayList<Produit> lesProduits = new ArrayList<>();
 
     ArrayList<Commande> lesCommandes;
-    public CommandesToServer(Context ctx, ArrayList<Commande> lesCommandes ) {
-        this.ctx = ctx;
-        this.lesCommandes = lesCommandes;
-    }
 
+    public CommandesToServer(Context ctx, ArrayList<Produit> lesProduits) {
+        this.ctx = ctx;
+        this.lesProduits = lesProduits;
+        Log.d("cmd",lesProduits.size()+"");
+    }
 
     public CommandesToServer(Context ctx) {
         this.ctx = ctx;
-
     }
 
 
     @Override
     protected String doInBackground(String... strings) {
+
         String retour="";
 
-        ParametresProduit param = new ParametresProduit();
 
-        param.setUrl("soumettrecommande");
-        param.setToken(new SharedPreferenceCommande(ctx).getCommandeSharedPreference());
-
-       // param.setToken();
         HttpURLConnection connection = null;
         StringBuilder sb = new StringBuilder();
         String requestURL = C.urlSendCommandeBibi;  // A COMPLETER
-        OutputStream out;
+        Log.d("cmd",requestURL);
+
+        ParametresCommande param = new ParametresCommande();
+        param.setUrl("soumettrecommande");
+        param.setProduitList(lesProduits);
 
         URL url = null;
+        Gson gson = new Gson(); // pour envoyer la requete
+
+
+        // Utilisateur utilisateur = SharedePreference.
+        //String token = .getTokenIdentification();
+        String token = new SharedePreferenceUser(ctx).getUserSharedPreference().getTokenIdentification();
+        Log.d("cmd",token);
+        param.setToken(token);
+
+
+        String commandeToSend = gson.toJson(param);
+
+
 
         try {
-            Gson gson = new Gson(); // pour envoyer la commande
-            String commandeToSend = gson.toJson(param);
+
             url = new URL(requestURL);
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
@@ -74,14 +90,15 @@ public class CommandesToServer extends AsyncTask<String,Long,String> {
             connection.setDoOutput(true);
             connection.setRequestProperty("Connection","Keep-Alive");
             connection.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
-            out = new BufferedOutputStream(connection.getOutputStream());
-            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(out,"UTF-8"));
+            OutputStream os = connection.getOutputStream();
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os,"UTF-8"));
             writer.write(commandeToSend);
             writer.flush();
             writer.close();
 
             int responseCode = connection.getResponseCode();
             if (responseCode == HttpURLConnection.HTTP_OK){
+                Log.d("cmd", responseCode+"");
 
                 InputStream in = new BufferedInputStream(connection.getInputStream());
                 BufferedReader reader = new BufferedReader(new InputStreamReader(in,"UTF-8"));
@@ -93,7 +110,7 @@ public class CommandesToServer extends AsyncTask<String,Long,String> {
                 in.close();
             }
             retour = sb.toString();
-            Log.d("test",retour);
+            Log.d("cmd",retour);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -102,6 +119,12 @@ public class CommandesToServer extends AsyncTask<String,Long,String> {
 
 
         return retour;
+    }
+
+    @Override
+    protected void onPostExecute(String s) {
+        Log.d("cmd","onPostExecute "+ s);
+
     }
 }
 

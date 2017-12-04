@@ -25,7 +25,9 @@ public class ConnexionActivity extends Activity {
         ctx =this;
         connexionActivity = this;
         inputId = (EditText) findViewById(R.id.inputIdentifiant);
+        inputId.setText("gerantfranchise");
         inputPwd = (EditText) findViewById(R.id.inputPwd);
+        inputPwd.setText("abc123...");
         bttnConnexion = (Button) findViewById(R.id.bttnConnexion);
 
 
@@ -36,6 +38,8 @@ public class ConnexionActivity extends Activity {
 
                 String id = inputId.getText().toString();
                 String pwd = inputPwd.getText().toString();
+
+
 
                 Utilisateur user = new Utilisateur(id,pwd);
 

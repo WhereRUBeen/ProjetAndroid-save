@@ -45,7 +45,8 @@
     <ListView
         android:id="@+id/boutiqueListView"
         android:layout_width="match_parent"
-        android:layout_height="350dp">
+        android:layout_height="350dp"
+       >
 
     </ListView>
 

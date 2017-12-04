@@ -40,12 +40,8 @@ public class DownloadDataRequestHttp extends AsyncTask<String,Long,String>{
         HttpURLConnection connection = null;
         StringBuilder sb = new StringBuilder();
 
-<<<<<<< Updated upstream
         String requestURL = C.urlGetCategorieBU; // A COMPLETER
-=======
-        String requestURL = C.urlGetProduitsBU; // A COMPLETER
 
->>>>>>> Stashed changes
 
         URL url = null;
         Gson gson = new Gson();
@@ -138,7 +134,7 @@ public class DownloadDataRequestHttp extends AsyncTask<String,Long,String>{
 
                 //TestManagerProduit.insert(testproduit);
 
-
+                /*
 
                 for (Produit p : testproduit) {
 
@@ -146,7 +142,7 @@ public class DownloadDataRequestHttp extends AsyncTask<String,Long,String>{
                     Log.d("nos produit", p.toString());
 
                 }
-
+                */
             }
 
         }

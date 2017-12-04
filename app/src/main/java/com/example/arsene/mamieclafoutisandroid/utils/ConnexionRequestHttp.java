@@ -7,6 +7,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.arsene.mamieclafoutisandroid.BoutiqueActivity;
+import com.example.arsene.mamieclafoutisandroid.BoutiqueCuisinie;
 import com.example.arsene.mamieclafoutisandroid.ConnexionActivity;
 import com.google.gson.Gson;
 
@@ -44,7 +45,7 @@ public class ConnexionRequestHttp extends AsyncTask<String, Long, String>{
         HttpURLConnection connection = null;
         StringBuilder sb = new StringBuilder();
 
-        String requestUrl = C.adresseIp78BU+strings[0];
+        String requestUrl = C.adresseBibi+strings[0];
         Log.d("test",requestUrl);
         if (strings[2] != null){
 
@@ -126,18 +127,12 @@ public class ConnexionRequestHttp extends AsyncTask<String, Long, String>{
                 Log.d("token enregistre", new SharedePreferenceUser(ctx).getUserSharedPreference().getTokenIdentification());
 
 
-                new DownloadDataRequestHttp(ctx).execute(utilisateur.getTokenIdentification()); // get les produits
+               // new DownloadDataRequestHttp(ctx).execute(utilisateur.getTokenIdentification()); // get les produits
                  // new CategoriesRequestHttp(ctx).execute(utilisateur.getTokenIdentification()); // get les catégories
                  // Log.d("",new SharedePreferenceUser(ctx,utilisateur).saveSharedPreference())
 
-               //new DownloadDataRequestHttp(ctx).execute(utilisateur.getTokenIdentification()); // get les produits
-                new CategoriesRequestHttp(ctx).execute(utilisateur.getTokenIdentification()); // get les catégories
-                new DownloadDataRequestHttp(ctx).execute(utilisateur.getTokenIdentification()); // get les produits
-                //new CategoriesRequestHttp(ctx).execute(utilisateur.getTokenIdentification()); // get les catégories
-               // Log.d("",new SharedePreferenceUser(ctx,utilisateur).saveSharedPreference())
-
                 Intent intent = new Intent();
-                intent.setClass(ctx, BoutiqueActivity.class);
+                intent.setClass(ctx, BoutiqueCuisinie.class);
                 ctx.startActivity(intent);
                 connexionActivity.finish();
 

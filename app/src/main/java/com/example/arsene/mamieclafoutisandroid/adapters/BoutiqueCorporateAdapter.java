@@ -31,17 +31,22 @@ public class BoutiqueCorporateAdapter extends ArrayAdapter<Produit>{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
+        Produit p = getItem(position);
+
         if (convertView == null){
             LayoutInflater inflater = LayoutInflater.from(ctx);
             convertView = inflater.inflate(layoutId,null);
         }
         // les composants du layout
         // image du produit
-        ImageView imgProduit = convertView.findViewById(R.id.imgProdBoutiqueCorp);
+        ImageView imgProduit = convertView.findViewById(R.id.boutiqueCorpImgView);
 
-        TextView nomProduit = convertView.findViewById(R.id.txtNomProdBoutiqueCorp);
-        TextView prixProduit = convertView.findViewById(R.id.txtPrixBoutiqueCorp);
+        TextView nomProduit = convertView.findViewById(R.id.boutiqueCorpNomTxtView);
+        TextView prixProduit = convertView.findViewById(R.id.textViewCorpPrixProd);
 
+        // set les composants
+        nomProduit.setText(""+p.getNom());
+        prixProduit.setText(""+p.getPrix());
         return convertView;
     }
 }

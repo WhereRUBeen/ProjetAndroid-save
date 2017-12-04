@@ -20,7 +20,7 @@ public class Manager_ingredient {
         ContentValues cv = new ContentValues();
         cv.put(C.Ingredient.denomination,ingredient.getDenomination());
         cv.put(C.Ingredient.quantite,ingredient.getQuantite());
-        cv.put(C.Ingredient.unite_id,ingredient.getUnite_ingredient());
+      //  cv.put(C.Ingredient.unite_id,ingredient.getUnite_ingredient());
         SQLiteDatabase bd = ConnexionBd.getBd(ctx);
         bd.insert(C.Categorie.nomTable,null,cv);
     }

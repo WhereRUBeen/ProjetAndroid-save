@@ -4,26 +4,60 @@
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
-    <ImageView
-        android:id="@+id/imgProdBoutiqueCorp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
-    
+
+    <!--image produit, nom et prix-->
     <LinearLayout
-        android:layout_marginRight="@dimen/marginRight"
+        android:layout_weight="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/txtNomProdBoutiqueCorp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Baguette"/>
-        <TextView
-            android:id="@+id/txtPrixBoutiqueCorp"
+            android:text="Produit"
+            android:textColor="@color/textColor"
+            android:gravity="center"
+            android:layout_marginLeft="40dp"/>
+
+        <ImageView
+            android:id="@+id/boutiqueCorpImgView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop"
+            android:layout_marginLeft="40dp"/>
+
+
     </LinearLayout>
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/boutiqueCorpNomTxtView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="baguette"
+            android:textColor="@color/textColor"/>
+        <TextView
+            android:id="@+id/textViewCorpPrixProd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Prix : 5.50$"
+            android:textColor="@color/textColor"/>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/marginTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 </LinearLayout>

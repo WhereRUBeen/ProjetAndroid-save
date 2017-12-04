@@ -7,6 +7,7 @@ package services;
 public class C {
 
     public static String adresseIp="http://192.168.15.117:8080/mamie_clafoutis_Projet_final/";
+    public static String adresseBibi="http://172.16.42.246:8080/mamie_clafoutis_Projet_final/";
 
     public static String urlGetProduits="http://192.168.15.117:8080/mamie_clafoutis_Projet_final/GestionProduitMobile";
 
@@ -28,7 +29,7 @@ public class C {
 
     public static String urlSendCommande115="http://192.168.15.115:8080/mamie_clafoutis_Projet_final/GestionCommande";
 
-    public static String urlSendCommandeBibi="http://172.16.42.139:8080/mamie_clafoutis_Projet_final/GestionCommande";
+    public static String urlSendCommandeBibi="http://172.16.42.246:8080/mamie_clafoutis_Projet_final/GestionCommande";
 
 
 
