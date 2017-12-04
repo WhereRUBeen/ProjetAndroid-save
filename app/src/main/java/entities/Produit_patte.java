@@ -1,10 +1,12 @@
 package entities;
 
+import java.io.Serializable;
+
 /**
  * Created by mayammouarangue on 24/11/17.
  */
 
-public class Produit_patte {
+public class Produit_patte implements Serializable{
     // attributs
     private Float poid;
     private int produit_id;

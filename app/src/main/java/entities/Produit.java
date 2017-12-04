@@ -1,10 +1,12 @@
 package entities;
 
+import java.io.Serializable;
+
 /**
  * Created by mayammouarangue on 24/11/17.
  */
 
-public class Produit {
+public class Produit implements Serializable{
     //attributs
     private int id;
     private String nom;

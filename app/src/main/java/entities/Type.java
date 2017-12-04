@@ -1,10 +1,12 @@
 package entities;
 
+import java.io.Serializable;
+
 /**
  * Created by mayammouarangue on 24/11/17.
  */
 
-public class Type {
+public class Type implements Serializable{
     //attributs
     private int id;
     private String denomination;
