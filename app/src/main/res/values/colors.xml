@@ -5,4 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="textColor">#5b1730</color>
     <color name="colorMamierose">#FFAF9A</color>
+    <color name="elblack">#000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="clearinput">#CCFFFFFF</color>
 </resources>

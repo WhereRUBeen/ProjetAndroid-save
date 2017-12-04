@@ -1,15 +1,19 @@
 package com.example.arsene.mamieclafoutisandroid;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import android.util.Log;
 
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -74,6 +78,8 @@ public class BoutiqueActivity extends Activity {
     ArrayAdapter<String> spinnerAdapter ;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,6 +101,16 @@ public class BoutiqueActivity extends Activity {
         lesCategories = new ArrayList<>();
         lesCategories = ManagerCategorie.getAll(ctx);
         spinner = (Spinner) findViewById(R.id.spinnerBoutiqueCategorie);
+
+
+        //ajouter bouton retour
+
+
+
+
+
+
+
 
 
         // init adapter
@@ -164,7 +180,19 @@ public class BoutiqueActivity extends Activity {
         });
 
 
-       // listener sur la listView
+        // set listViewAdpater
+
+       // boutiqueLv.setAdapter(null);
+        boutiqueLv.setAdapter(adapter);// on passe les produits dans notre adapatateur;
+        Log.d("boutique","boutique listView");
+        // action bar color
+        // get le role + condition pour des couleurs differente pour chaque role
+
+        ActionBar bar = getActionBar();
+        bar.setBackgroundDrawable(new ColorDrawable(Color.rgb(0,128,255)));
+
+
+
         boutiqueLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -250,6 +278,7 @@ public class BoutiqueActivity extends Activity {
         });
 
 
+
         // mets les produits dans le panier
         bttnPanier.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -262,5 +291,16 @@ public class BoutiqueActivity extends Activity {
         });
 
 
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == R.id.home){
+            this.finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
