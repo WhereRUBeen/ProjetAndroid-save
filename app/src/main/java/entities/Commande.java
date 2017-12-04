@@ -1,10 +1,12 @@
 package entities;
 
+import java.io.Serializable;
+
 /**
  * Created by mayammouarangue on 24/11/17.
  */
 
-public class Commande {
+public class Commande implements Serializable{
 
     // attributs
     private int id;

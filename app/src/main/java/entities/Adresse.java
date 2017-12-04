@@ -1,10 +1,12 @@
 package entities;
 
+import java.io.Serializable;
+
 /**
  * Created by mayammouarangue on 24/11/17.
  */
 
-public class Adresse {
+public class Adresse implements Serializable {
     // attributs
     private int id;
     private int numero_rue;

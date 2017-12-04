@@ -56,10 +56,6 @@ public class BoutiqueAdapter extends ArrayAdapter<Produit> {
         textViewPrixProduit.setText(p.getPrix()+"");
 
 
-
-
-
-
         return convertView;
     }
 }

@@ -1,10 +1,12 @@
 package entities;
 
+import java.io.Serializable;
+
 /**
  * Created by mayammouarangue on 24/11/17.
  */
 
-public class Ligne_de_commande {
+public class Ligne_de_commande implements Serializable{
     // attributs
     private int commande_id;
     private int produit_idproduit;
