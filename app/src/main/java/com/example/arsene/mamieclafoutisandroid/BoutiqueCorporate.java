@@ -1,12 +1,18 @@
 package com.example.arsene.mamieclafoutisandroid;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.arsene.mamieclafoutisandroid.adapters.BoutiqueCorporateAdapter;
 
@@ -35,9 +41,11 @@ public class BoutiqueCorporate extends Activity {
     // BoutiqueCorporateAdapter
     BoutiqueCorporateAdapter adapter;
 
+    Produit produitCourrant;
     // les Arraylists
     ArrayList<Categorie> lesCategories;
     ArrayList<Produit> lesProduits;
+    ArrayList<Produit> selectionProduit;
 
     ListView boutiqueLv;
 
@@ -56,6 +64,10 @@ public class BoutiqueCorporate extends Activity {
         lesCategories = new ArrayList<>();
         lesCategories = ManagerCategorie.getAll(ctx);
 
+        // init selectionProduit
+        selectionProduit = new ArrayList<Produit>();
+        selectionProduit.addAll(lesProduits);
+
         spinner = (Spinner) findViewById(R.id.spinnerBoutiqueCategorieCorp);
 
 
@@ -67,12 +79,80 @@ public class BoutiqueCorporate extends Activity {
 
         //set l'adapter du spinner
         spinner.setAdapter(spinnerAdapter);
+        // listen sur le spinner
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                selectionProduit = new ArrayList<Produit>();
+                selectionProduit.addAll(lesProduits);
+                String selected = adapterView.getItemAtPosition(i).toString();
+                Toast.makeText(ctx, selected, Toast.LENGTH_SHORT).show();
+
+                System.out.println("taille initiale :"+ lesProduits.size());
+                // List<Produit> toRemove = new ArrayList<>();
+                ArrayList<Produit> toRemove = new ArrayList<>();
+
+                for (Produit p : selectionProduit){
+
+                    if (!selected.equals(p.getCategorie().getDenomination())){
+                        toRemove.add(p);
+                    }
+                }
+                System.out.println("taille toRemove :"+ toRemove.size());
+                selectionProduit.removeAll(toRemove);
+                System.out.println("nombre  produit : "+ selectionProduit.size());
+                System.out.println("nom produit: "+ selectionProduit.get(0).getCategorie().getDenomination() );
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         // get adapter listView
         adapter = new BoutiqueCorporateAdapter(ctx,R.layout.boutique_corporate_view,lesProduits);
         System.out.println("boutique corp prod "+ lesProduits.size());
         //set adapter listView
         boutiqueLv.setAdapter(adapter);
+
+        //listener sur la listView
+        boutiqueLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                produitCourrant = (Produit) adapterView.getItemAtPosition(i);
+
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
+                builder.setTitle("Détails produit");
+                builder.setNegativeButton("Retour", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+
+                LinearLayout linearLayout = (LinearLayout) getLayoutInflater().inflate(R.layout.details_produit,null);
+                builder.setView(linearLayout);
+                AlertDialog dialog = builder.create();
+                dialog.getWindow().setLayout(800,800);
+                dialog.show();
+
+
+                // les composants du layout
+                nom = (TextView) dialog.findViewById(R.id.detailsProd_nom);
+                categorie =(TextView) dialog.findViewById(R.id.detailsProd_categorie);
+                prix =(TextView) findViewById(R.id.detailsProd_prix);
+                poids = (TextView) findViewById(R.id.detailsProd_poix);
+                unite =(TextView) findViewById(R.id.detailsProd_unite);
+                description = (TextView) findViewById(R.id.detailsProd_desc);
+                recette =(TextView) findViewById(R.id.detailsProd_recette);
+
+
+            }
+        });
 
 
     }
