@@ -11,7 +11,6 @@ public class ErrorActivity extends Activity {
 
     Context ctx;
     Button btnRetourErreur;
-    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
