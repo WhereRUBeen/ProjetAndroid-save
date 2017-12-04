@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Boutique"
-        android:textColor="@color/textColor"
+        android:textColor="@color/colorMamierose"
         android:gravity="center"
         android:layout_marginTop="15dp"
         android:textSize="30sp"/>
@@ -27,8 +27,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Catégories"
-            android:textColor="@color/textColor"
+            android:textColor="@color/colorMamierose"
             android:layout_weight="1"
+            android:textSize="20dp"
             android:layout_marginLeft="35dp"/>
 
         <Spinner
@@ -62,7 +63,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Mes Commandes" />
+            android:background="@color/colorMamierose"
+            android:text="  Mes Commandes  "
+            android:textColor="@color/textColor"/>
 
 
     </LinearLayout>

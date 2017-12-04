@@ -27,7 +27,7 @@
             android:layout_gravity="center"
             android:text="Connexion"
             android:textSize="30sp"
-            android:textColor="#FFAF9A"/>
+            android:textColor="@color/colorMamierose"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -39,14 +39,15 @@
                 android:text="Identifiant"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#FFAF9A"
+                android:textColor="@color/colorMamierose"
                 android:layout_weight="1"
-                android:layout_marginLeft="35dp"/>
+                android:textSize="20dp"
+                android:layout_marginLeft="20dp"/>
             <EditText
                 android:id="@+id/inputIdentifiant"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#5b1730"
+                android:textColor="@color/textColor"
                 android:layout_weight="2"
                 android:layout_marginRight="15dp"/>
 
@@ -60,15 +61,16 @@
                 android:text="Mot de passe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#FFAF9A"
+                android:textColor="@color/colorMamierose"
                 android:layout_weight="1"
-                android:layout_marginLeft="35dp"/>
+                android:textSize="20dp"
+                android:layout_marginLeft="20dp"/>
             <EditText
                 android:id="@+id/inputPwd"
                 android:inputType="textPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#5b1730"
+                android:textColor="@color/textColor"
                 android:layout_weight="2"
                 android:layout_marginRight="15dp"/>
 
@@ -78,9 +80,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="  Connexion  "
-            android:background="#FFAF9A"
+            android:background="@color/colorMamierose"
             android:layout_marginTop="50dp"
-            android:textColor="#5b1730"
+            android:textColor="@color/textColor"
 
 
             android:layout_gravity="center_horizontal"
