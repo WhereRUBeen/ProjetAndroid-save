@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
 
+import entities.Etablissement;
 import entities.Type_Etablissement;
 import services.C;
 import services.ConnexionBd;
@@ -44,5 +45,6 @@ public class ManagerType_Etablissement {
 
         return retour;
     }
+
 
 }

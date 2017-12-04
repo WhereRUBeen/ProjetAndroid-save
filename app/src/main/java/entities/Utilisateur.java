@@ -11,8 +11,9 @@ public class Utilisateur {
     private String nom;
     private String prenom;
 
-  //  private int etablissement_id;
+    private int etablissement_id;
     private Etablissement etablissement;
+    private Type_Etablissement typeEtablissement;
     private Role role;
     private String userName;
     private String password;
@@ -58,6 +59,16 @@ public class Utilisateur {
     }
 
     //getters and setters
+
+
+    public Type_Etablissement getTypeEtablissement() {
+        return typeEtablissement;
+    }
+
+    public void setTypeEtablissement(Type_Etablissement typeEtablissement) {
+        this.typeEtablissement = typeEtablissement;
+    }
+
     public int getId() {
         return id;
     }

@@ -8,6 +8,7 @@ public class Role {
     // attributs
     private int id;
     private String titre;
+    private String denomination;
 
     // constructeur
 
@@ -20,7 +21,18 @@ public class Role {
         this.titre = titre;
     }
 
+
+
     // getters et setters
+
+    public String getDenomination() {
+        return denomination;
+    }
+
+    public void setDenomination(String denomination) {
+        this.denomination = denomination;
+    }
+
     public int getId() {
         return id;
     }

@@ -157,7 +157,11 @@ public class BoutiqueCuisinie extends Activity {
 
 
         // set adapter
-        adapter = new BoutiqueCuisinieAdapter(ctx,R.layout.boutique_cuisinie_view,selectionProduit);
+        if (adapter == null) {
+            adapter = new BoutiqueCuisinieAdapter(ctx, R.layout.boutique_cuisinie_view, selectionProduit);
+        }else {
+            adapter.notifyDataSetChanged();
+        }
         // set listView adapter
         boutiqueLv.setAdapter(adapter);
 

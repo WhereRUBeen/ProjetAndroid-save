@@ -12,6 +12,7 @@ public class Etablissement implements Serializable{
     private String name;
     private String tel;
     private Type_Etablissement typeEtablissement;
+    private int type_id;
     private Adresse adresse;
     private boolean isVisible;
 
@@ -33,7 +34,22 @@ public class Etablissement implements Serializable{
         this.adresse = adresse;
         this.isVisible = isVisible;
     }
+
+    public Etablissement(int id, String name, int type_id) {
+        this.id = id;
+        this.name = name;
+        this.type_id = type_id;
+    }
     // getters and setters
+
+
+    public int getType_id() {
+        return type_id;
+    }
+
+    public void setType_id(int type_id) {
+        this.type_id = type_id;
+    }
 
     public int getId() {
         return id;

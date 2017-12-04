@@ -96,7 +96,11 @@ public class BoutiqueActivity extends Activity {
         lesCategories = ManagerCategorie.getAll(ctx);
         spinner = (Spinner) findViewById(R.id.spinnerBoutiqueCategorie);
 
-       // String[] categoriesTab =  new String[lesCategories.size()];
+
+        // init adapter
+        //adapter = new BoutiqueAdapter(ctx, R.layout.boutique_view, selectionProduit);
+
+
 
 
         // get les categories
@@ -121,6 +125,7 @@ public class BoutiqueActivity extends Activity {
                 Toast.makeText(ctx, selected, Toast.LENGTH_SHORT).show();
 
 
+
                 System.out.println("taille initiale :"+ lesProduits.size());
                // List<Produit> toRemove = new ArrayList<>();
                 ArrayList<Produit> toRemove = new ArrayList<>();
@@ -129,14 +134,25 @@ public class BoutiqueActivity extends Activity {
 
                     if (!selected.equals(p.getCategorie().getDenomination())){
                         toRemove.add(p);
+
                     }
                 }
                 System.out.println("taille toRemove :"+ toRemove.size());
                 selectionProduit.removeAll(toRemove);
                 System.out.println("nombre  produit : "+ selectionProduit.size());
-                System.out.println("nom produit: "+ selectionProduit.get(0).getCategorie().getDenomination() );
+                System.out.println("nom categorie: "+ selectionProduit.get(0).getCategorie().getDenomination() );
 
-               // boutiqueLv.setAdapter(adapter);
+                //adapter.setNotifyOnChange(true);
+                //adapter.notifyDataSetChanged();
+
+                // set listViewAdpater
+                adapter = new BoutiqueAdapter(ctx, R.layout.boutique_view, selectionProduit);
+                System.out.println("nombre  produit hhhhh: "+ selectionProduit.size());
+                Log.d("adapter",selectionProduit.size()+" taille");
+
+                // boutiqueLv.setAdapter(null);
+                boutiqueLv.setAdapter(adapter);// on passe les produits dans notre adapatateur;
+
             }
 
             @Override
@@ -147,19 +163,8 @@ public class BoutiqueActivity extends Activity {
 
         });
 
-        // set l'adapter du listView
-       // LinearLayout vueAdapter =
-        adapter = new BoutiqueAdapter(ctx,R.layout.boutique_view,selectionProduit);
-        System.out.println("Dans listView "+lesProduits);
-        Log.d("boutique ",testproduits.size() +"");
-        Log.d("boutique ","adapter boutique");
 
-        // set listViewAdpater
-
-       // boutiqueLv.setAdapter(null);
-        boutiqueLv.setAdapter(adapter);// on passe les produits dans notre adapatateur;
-        Log.d("boutique","boutique listView");
-
+       // listener sur la listView
         boutiqueLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
