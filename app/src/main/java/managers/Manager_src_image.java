@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.Set;
 
-import entities.Src_image;
+import entities.ImageList;
 import services.C;
 import services.ConnexionBd;
 
@@ -20,10 +20,10 @@ public class Manager_src_image {
 
     private static String queryByIdProductImg="select * from src_image where produit_id=? ";
 
-    public static void insertImg(Context ctx , Src_image src_image){
+    public static void insertImg(Context ctx , ImageList src_image){
         ContentValues cv = new ContentValues();
         cv.put(C.Src_image.id, src_image.getId());
-        cv.put(C.Src_image.src_image_taille_mobile, src_image.getSrc_image_taille_mobile());
+        cv.put(C.Src_image.src_img_mobile, src_image.getSrc_img_mobile());
         cv.put(C.Src_image.produit_id, src_image.getProduit_id());
 
         SQLiteDatabase bd = ConnexionBd.getBd(ctx);
@@ -32,8 +32,8 @@ public class Manager_src_image {
         bd.close();
     }
 
-    public static ArrayList<Src_image> getAllImage(Context ctx){
-        ArrayList<Src_image> retour = new ArrayList<>();
+    public static ArrayList<ImageList> getAllImage(Context ctx){
+        ArrayList<ImageList> retour = new ArrayList<>();
 
         SQLiteDatabase bd = ConnexionBd.getBd(ctx);
         Cursor c = bd.rawQuery(queryByIdProductImg,null);
@@ -43,7 +43,7 @@ public class Manager_src_image {
             String src_image_taille_mobile = c.getString(1);
             int produit_id = c.getInt(2);
 
-            Src_image src = new Src_image(id,src_image_taille_mobile,produit_id);
+            ImageList src = new ImageList(id,src_image_taille_mobile,produit_id);
             retour.add(src);
     }
     return retour;

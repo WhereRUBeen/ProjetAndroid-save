@@ -1,5 +1,9 @@
 package entities;
 
+import java.util.ArrayList;
+
+import services.C;
+
 /**
  * Created by mayammouarangue on 24/11/17.
  */
@@ -9,25 +13,45 @@ public class Produit {
     private int id;
     private String nom;
     private Categorie categorie;
-    private int categorie_id;
+
     private String description;
     private Float prix;
     private boolean estVisible;
     private String reference;
     private Float poid;
-    private int unite_id;
+    private Unite unite;
+    private ArrayList<ImageList> imageList;
     private int quantite;
 
-    public Produit(int id, String nom, int categorie_id, String description, Float prix, String reference, Float poid, int unite_id) {
+
+
+
+
+    // CONSTRUCTEUR
+
+
+    public Produit(int id, String nom, Categorie categorie, String description, Float prix, Float poid, Unite unite, ArrayList<ImageList> srcImage, int quantite) {
         this.id = id;
         this.nom = nom;
-        this.categorie_id = categorie_id;
+        this.categorie = categorie;
+        this.description = description;
+        this.prix = prix;
+        this.poid = poid;
+        this.unite = unite;
+        this.imageList = srcImage;
+        this.quantite = quantite;
+    }
+
+    public Produit(int id, String nom, String description, Float prix, String reference, Float poid, int unite_id) {
+        this.id = id;
+        this.nom = nom;
+
         this.description = description;
         this.prix = prix;
         this.estVisible = estVisible;
         this.reference = reference;
         this.poid = poid;
-        this.unite_id = unite_id;
+
     }
 
     // constructeur testManager
@@ -36,14 +60,14 @@ public class Produit {
         this.nom = nom;
         this.prix = prix;
     }
-
+/*
     //constructeur testManager avec id catégorie
     public Produit(int id, String nom, int categorie_id, Float prix) {
         this.id = id;
         this.nom = nom;
         this.categorie_id = categorie_id;
         this.prix = prix;
-    }
+    }*/
 
     //constructeur testManager avec  catégorie
     public Produit(int id, String nom, Categorie categorie, Float prix) {
@@ -61,13 +85,12 @@ public class Produit {
         this.quantite = quantite;
     }
 
-    public Produit(String nom, String description, Float prix, String reference, Float poid, int unite_id) {
+    public Produit(String nom, String description, Float prix, String reference, Float poid) {
         this.nom = nom;
         this.description = description;
         this.prix = prix;
         this.reference = reference;
         this.poid = poid;
-        this.unite_id = unite_id;
     }
 
     // constructeur commande
@@ -76,15 +99,17 @@ public class Produit {
         this.quantite = quantite;
     }
 
-    public int getCategorie_id() {
-        return categorie_id;
-    }
-
-    public void setCategorie_id(int categorie_id) {
-        this.categorie_id = categorie_id;
-    }
-
 //constructeur
+
+
+    public Unite getUnite() {
+        return unite;
+    }
+
+    public void setUnite(Unite unite) {
+        this.unite = unite;
+    }
+
 
 
     public Categorie getCategorie() {
@@ -162,11 +187,11 @@ public class Produit {
         this.poid = poid;
     }
 
-    public int getUnite_id() {
-        return unite_id;
+    public ArrayList<ImageList> getImageList() {
+        return imageList;
     }
 
-    public void setUnite_id(int unite_id) {
-        this.unite_id = unite_id;
+    public void setImageList(ArrayList<ImageList> imageList) {
+        this.imageList = imageList;
     }
 }

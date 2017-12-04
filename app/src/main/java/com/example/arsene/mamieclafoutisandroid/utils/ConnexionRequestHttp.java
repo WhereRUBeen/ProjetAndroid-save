@@ -53,7 +53,7 @@ public class ConnexionRequestHttp extends AsyncTask<String, Long, String>{
         HttpURLConnection connection = null;
         StringBuilder sb = new StringBuilder();
 
-        String requestUrl = C.adresseIp+strings[0];
+        String requestUrl = C.adresseHugo+strings[0];
         Log.d("test",requestUrl);
         if (strings[2] != null){
 
@@ -298,7 +298,7 @@ public class ConnexionRequestHttp extends AsyncTask<String, Long, String>{
 
 
 
-               // new DownloadDataRequestHttp(ctx).execute(utilisateur.getTokenIdentification()); // get les produits
+               new DownloadDataRequestHttp(ctx).execute(utilisateur.getTokenIdentification()); // get les produits
                  // new CategoriesRequestHttp(ctx).execute(utilisateur.getTokenIdentification()); // get les catégories
                  // Log.d("",new SharedePreferenceUser(ctx,utilisateur).saveSharedPreference())
 

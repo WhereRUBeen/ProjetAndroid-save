@@ -17,6 +17,7 @@ public class Vente extends Activity {
     Button btnDate, btnAfficherVente, btnRetourVente;
     Context ctx;
     private int jour,mois,annee;
+    
     EditText date;
 
 

@@ -4,14 +4,16 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+
+import com.example.arsene.mamieclafoutisandroid.utils.Mydb;
 
 import java.util.ArrayList;
 
+import entities.ImageList;
 import entities.Produit;
-import entities.Src_image;
 import services.C;
 import services.ConnexionBd;
-import com.example.arsene.mamieclafoutisandroid.utils.Mydb;
 
 /**
  * Created by Been WhereU on 2017-11-26.
@@ -22,15 +24,27 @@ public class Manager_Produit {
 
     public static void insert(Context ctx, Produit produit) {
         ContentValues cv = new ContentValues();
+
         cv.put(C.Produit.id, produit.getId());
         cv.put(C.Produit.nom, produit.getNom());
-        cv.put(C.Produit.categorie_id, produit.getCategorie_id());
+        cv.put(C.Categorie.id_categorie, produit.getCategorie().getId());
+        cv.put(C.Categorie.denomination, produit.getCategorie().getDenomination());
         cv.put(C.Produit.description, produit.getDescription());
         cv.put(C.Produit.prix, produit.getPrix());
         cv.put(C.Produit.poid, produit.getPoid());
-        cv.put(C.Produit.reference, produit.getReference());//
-        cv.put(C.Produit.unite_id, produit.getUnite_id());
+        cv.put(C.Unite.uniteDenomination,produit.getUnite().getDenomination());
+        for (ImageList img: produit.getImageList()) {
+            cv.put(C.Src_image.produit_id,img.getProduit_id());
+            cv.put(C.Src_image.src_img_mobile,img.getSrc_img_mobile());
 
+
+
+
+
+        }
+       // cv.put(C.ImageList.produit_id,produit.getSrcImage().getProduit_id());
+      //  cv.put(C.Src_image.src_img_mobile,produit.getimageList().getImageList());
+        cv.put(C.Produit.quantite,produit.getQuantite());
 
 
         SQLiteDatabase bd = ConnexionBd.getBd(ctx);
@@ -49,17 +63,23 @@ public class Manager_Produit {
         while (c.moveToNext()) {
             int id = c.getInt(0);
             String nom = c.getString(1);
-            int categorie_id = c.getInt(2);
-            String description = c.getString(3);
-            float prix = c.getFloat(4);
+            int id_categorie= c.getInt(2);
+            String denomination = c.getString(3);
+            String description = c.getString(4);
+            float prix = c.getFloat(5);
+            float poid = c.getFloat(6);
+           // String unitedenolination = c.getString(7);
+          //  int unite_id = c.getInt(7);
 
-            float poid = c.getFloat(5);
-            String reference = c.getString(6);
-            int unite_id = c.getInt(7);
+            int produit_id = c.getInt(9);
+            String src_img = c.getString(10);
+           // Manager_src_image.insertImg(ctx,img);
+            Log.d("produitBase2",Manager_src_image.getAllImage(ctx)+"");
+
 
             //String unite = c.getString(7);
-            Produit s = new Produit(id, nom, categorie_id, description, prix,reference, poid,  unite_id);
-            retour.add(s);
+           Produit s = new Produit(id, nom,  prix);
+           retour.add(s);
         }
         return retour;
 

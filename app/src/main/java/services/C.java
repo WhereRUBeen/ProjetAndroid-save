@@ -8,10 +8,12 @@ public class C {
 
     public static String adresseIp="http://192.168.15.117:8080/mamie_clafoutis_Projet_final/";
     public static String adresseBibi="http://172.16.42.246:8080/mamie_clafoutis_Projet_final/";
+    public static String adresseHugo="http://192.168.15.102:8080/mamie_clafoutis_Projet_final/";
 
     public static String urlGetProduits="http://192.168.15.117:8080/mamie_clafoutis_Projet_final/GestionProduitMobile";
 
     public static String urlGetProduitsBU="http://172.16.42.139:8080/mamie_clafoutis_Projet_final/GestionProduitMobile";
+    public static String urlGetProduitsHugo="http://192.168.15.102:8080/mamie_clafoutis_Projet_final/GestionProduitMobile";
 
     public static String adresseIp78="http://192.168.15.78:8080/mamie_clafoutis_Projet_final/";
 
@@ -125,6 +127,7 @@ public class C {
     public static final class Categorie {
         public static final String nomTable = "categorie";
         public static final String id = "id";
+        public static final String id_categorie = "id_categorie";
         public static final String denomination = "denomination";
     }
 
@@ -132,7 +135,7 @@ public class C {
         public static final String nomTable = "produit";
         public static final String id = "id";
         public static final String nom = "nom";
-        // public static final String categorie = "categorie";
+        public static final String categorie = "categorie";
         public static final String categorie_id = "categorie_id";
         public static final String description = "description";
         public static final String prix = "prix";
@@ -140,14 +143,15 @@ public class C {
         public static final String reference = "reference";
         public static final String poid = "poid";
         public static final String unite_id = "unite_id";
-        //public static final String unite = "unite";
+        public static final String unite = "unite";
+        public static final String srcImage = "srcImage";
+        public static final String quantite = "quantite";
     }
 
     public static final class Src_image {
         public static final String nomTable = "src_image";
         public static final String id = "id";
-        public static final String src_image_taille_normale = "src_image_taille_normale";
-        public static final String src_image_taille_mobile = "src_image_taille_mobile";
+        public static final String src_img_mobile = "src_img_mobile";
         public static final String produit_id = "produit_id";
 
     }
@@ -172,6 +176,7 @@ public class C {
         public static final String nomTable = "unite";
         public static final String id = "id";
         public static final String denomination = "denomination";
+        public static final String uniteDenomination = "uniteDenomination";
     }
 
 
