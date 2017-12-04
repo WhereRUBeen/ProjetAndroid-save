@@ -1,5 +1,7 @@
 package entities;
 
+import java.io.Serializable;
+
 import java.util.ArrayList;
 
 import services.C;
@@ -8,7 +10,7 @@ import services.C;
  * Created by mayammouarangue on 24/11/17.
  */
 
-public class Produit {
+public class Produit implements Serializable{
     //attributs
     private int id;
     private String nom;

@@ -1,10 +1,12 @@
 package entities;
 
+import java.io.Serializable;
+
 /**
  * Created by mayammouarangue on 24/11/17.
  */
 
-public class Production {
+public class Production implements Serializable {
     //attributs
     private int utilisateur_id;
     private int produit_id;

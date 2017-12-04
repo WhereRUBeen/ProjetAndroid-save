@@ -1,10 +1,12 @@
 package entities;
 
+import java.io.Serializable;
+
 /**
  * Created by mayammouarangue on 27/11/17.
  */
 
-public class Unite {
+public class Unite implements Serializable{
     int id;
     String denomination;
 

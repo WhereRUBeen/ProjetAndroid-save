@@ -1,10 +1,12 @@
 package entities;
 
+import java.io.Serializable;
+
 /**
  * Created by mayammouarangue on 24/11/17.
  */
 
-public class Ventes {
+public class Ventes implements Serializable{
     //attributs
     private Long date_horaire;
     private int utilisateur_id;

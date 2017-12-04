@@ -1,12 +1,13 @@
 package entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by mayammouarangue on 24/11/17.
  */
 
-public class Patte {
+public class Patte implements Serializable{
     // attributs
     private int id;
     private String nom;
