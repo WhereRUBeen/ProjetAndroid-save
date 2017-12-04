@@ -103,15 +103,6 @@ public class BoutiqueActivity extends Activity {
         spinner = (Spinner) findViewById(R.id.spinnerBoutiqueCategorie);
 
 
-        //ajouter bouton retour
-
-
-
-
-
-
-
-
 
         // init adapter
         //adapter = new BoutiqueAdapter(ctx, R.layout.boutique_view, selectionProduit);
@@ -185,11 +176,12 @@ public class BoutiqueActivity extends Activity {
        // boutiqueLv.setAdapter(null);
         boutiqueLv.setAdapter(adapter);// on passe les produits dans notre adapatateur;
         Log.d("boutique","boutique listView");
+
         // action bar color
         // get le role + condition pour des couleurs differente pour chaque role
 
         ActionBar bar = getActionBar();
-        bar.setBackgroundDrawable(new ColorDrawable(Color.rgb(0,128,255)));
+        bar.setBackgroundDrawable(new ColorDrawable(Color.rgb(255,204,204)));
 
 
 
@@ -292,15 +284,13 @@ public class BoutiqueActivity extends Activity {
 
 
     }
+    //retour a l'activity de connexion whene press back
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public void onBackPressed() {
+        super.onBackPressed();
 
-        int id = item.getItemId();
-
-        if (id == R.id.home){
-            this.finish();
-        }
-
-        return super.onOptionsItemSelected(item);
+        Intent intent = new Intent();
+        intent.setClass(ctx,ConnexionActivity.class);
+        startActivity(intent);
     }
 }

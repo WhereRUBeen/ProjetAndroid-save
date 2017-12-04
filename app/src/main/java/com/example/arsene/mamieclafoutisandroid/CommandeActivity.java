@@ -1,7 +1,10 @@
 package com.example.arsene.mamieclafoutisandroid;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -97,5 +100,12 @@ public class CommandeActivity extends Activity {
                new CommandesToServer(ctx,lesProduits).execute();
             }
         });
+
+
+        // action bar color
+        // get le role + condition pour des couleurs differente pour chaque role
+
+        ActionBar bar = getActionBar();
+        bar.setBackgroundDrawable(new ColorDrawable(Color.rgb(255,204,204)));
     }
 }

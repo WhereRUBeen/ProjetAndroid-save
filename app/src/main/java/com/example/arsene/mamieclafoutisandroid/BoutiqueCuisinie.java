@@ -1,10 +1,13 @@
 package com.example.arsene.mamieclafoutisandroid;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -81,6 +84,14 @@ public class BoutiqueCuisinie extends Activity {
         testproduits = new ArrayList<>();   // contient tous les produits de toute catégories
         // testproduits = Manager_Produit.getAll(ctx);
         testproduits = TestManagerProduit.getAll();
+
+
+        // action bar color
+        // get le role + condition pour des couleurs differente pour chaque role
+
+        ActionBar bar = getActionBar();
+        bar.setBackgroundDrawable(new ColorDrawable(Color.rgb(255,204,204)));
+
 
         // init selectionProduit
         selectionProduit = new ArrayList<Produit>();
@@ -268,5 +279,15 @@ public class BoutiqueCuisinie extends Activity {
         });
 
 
+    }
+
+    //retour a l'activity de connexion whene press back
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        Intent intent = new Intent();
+        intent.setClass(ctx,ConnexionActivity.class);
+        startActivity(intent);
     }
 }
