@@ -59,7 +59,7 @@ public class GestionBase extends SQLiteOpenHelper {
 
     private static final String queryCreateImage = "CREATE TABLE " + C.Src_image.nomTable + " (" +
             C.Src_image.id + " INTEGER PRIMARY KEY AUTOINCREMENT , " +
-            C.Src_image.src_image_taille_mobile + " TEXT , " +
+            C.Src_image.src_img_mobile + " TEXT , " +
             C.Src_image.produit_id + " TEXT);";
 
 
@@ -97,13 +97,15 @@ public class GestionBase extends SQLiteOpenHelper {
     private static final String queryCreateProduit = "CREATE TABLE "+ C.Produit.nomTable+ " ("+
             C.Produit.id + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
             C.Produit.nom + " TEXT, "+
-            C.Produit.categorie_id +" TEXT, "+
+            C.Categorie.id_categorie +" INTEGER, "+
+            C.Categorie.denomination +" TEXT, "+
             C.Produit.description+" TEXT, "+
             C.Produit.prix+" REAL, "+
-            C.Produit.estvisible+" TEXT, "+
-            C.Produit.reference+" TEXT, "+
             C.Produit.poid+" REAL, "+
-            C.Produit.unite_id +" TEXT);";
+            C.Unite.uniteDenomination +" TEXT, "+
+            C.Src_image.produit_id+" Integer, "+
+            C.Src_image.src_img_mobile+" TEXT, "+
+            C.Produit.quantite+" REAL );";
 
     @Override
     public void onCreate(SQLiteDatabase bd) {

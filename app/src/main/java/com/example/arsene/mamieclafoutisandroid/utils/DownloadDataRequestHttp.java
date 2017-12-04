@@ -7,16 +7,20 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import org.json.JSONArray;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.PrintStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 
 import entities.Parametre;
 import entities.ParametresProduit;
@@ -40,7 +44,7 @@ public class DownloadDataRequestHttp extends AsyncTask<String,Long,String>{
         HttpURLConnection connection = null;
         StringBuilder sb = new StringBuilder();
 
-        String requestURL = C.urlGetCategorieBU; // A COMPLETER
+        String requestURL = C.urlGetProduitsHugo; // A COMPLETER
 
 
         URL url = null;
@@ -111,13 +115,17 @@ public class DownloadDataRequestHttp extends AsyncTask<String,Long,String>{
 
             if (!s.equals("-1")){
 
-                //List<Produit> lesProduits;
-                //lesProduits = gson.fromJson(s,Produit.class);
+                //List<Produit> lesProduits = new ArrayList<>();
 
-                Produit[] lesProds = gson.fromJson(s,Produit[].class);
+                //Log.d("prod",lesProduits.size()+"");
+                Produit[] lesProds = gson.fromJson(s, Produit[].class);
 
 
-                Log.d("prod", lesProds.length+"");
+                //
+                Log.d("prod",lesProds.length+"");
+
+
+          /*   //   Log.d("prod", lesProds.length+"");
                 ArrayList<Produit> testproduit = new ArrayList<Produit>();
 
                 TypeToken<ArrayList<Produit>> token = new TypeToken<ArrayList<Produit>>(){};
@@ -127,22 +135,20 @@ public class DownloadDataRequestHttp extends AsyncTask<String,Long,String>{
 
                 // System.out.println("taille testProduit"+ testproduit.size());
                 Log.d("taille", testproduit.size()+"");
-                for (int i=0;i< lesProds.length; i++){
-
-                    Log.d("les",lesProds[i] + "");
-                }
-
+*/
                 //TestManagerProduit.insert(testproduit);
 
-                /*
 
-                for (Produit p : testproduit) {
+
+               /* for (Produit p : lesProds) {
 
                     Manager_Produit.insert(ctx,p);
                     Log.d("nos produit", p.toString());
 
-                }
-                */
+                }*/
+
+               Log.d("produitBase",Manager_Produit.getAll(ctx).size()+"");
+
             }
 
         }
