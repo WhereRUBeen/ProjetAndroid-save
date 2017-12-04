@@ -293,24 +293,9 @@ public class ConnexionRequestHttp extends AsyncTask<String, Long, String>{
 
                 }
 
-
-
-
-
-
                new DownloadDataRequestHttp(ctx).execute(utilisateur.getTokenIdentification()); // get les produits
                  // new CategoriesRequestHttp(ctx).execute(utilisateur.getTokenIdentification()); // get les catégories
                  // Log.d("",new SharedePreferenceUser(ctx,utilisateur).saveSharedPreference())
-
-
-
-
-
-
-
-
-
-
 
             }
             else {

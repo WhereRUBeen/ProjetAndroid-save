@@ -21,7 +21,9 @@ public class Manager_src_image {
     private static String queryByIdProductImg="select * from src_image where produit_id=? ";
 
     public static void insertImg(Context ctx , ImageList src_image){
+
         ContentValues cv = new ContentValues();
+
         cv.put(C.Src_image.id, src_image.getId());
         cv.put(C.Src_image.src_img_mobile, src_image.getSrc_img_mobile());
         cv.put(C.Src_image.produit_id, src_image.getProduit_id());
@@ -36,7 +38,9 @@ public class Manager_src_image {
         ArrayList<ImageList> retour = new ArrayList<>();
 
         SQLiteDatabase bd = ConnexionBd.getBd(ctx);
-        Cursor c = bd.rawQuery(queryByIdProductImg,null);
+        String query = "select * from "+C.Src_image.nomTable+";";
+
+        Cursor c = bd.rawQuery(query,null);
 
         while (c.moveToNext()){
             int id = c.getInt(0);

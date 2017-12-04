@@ -135,19 +135,20 @@ public class DownloadDataRequestHttp extends AsyncTask<String,Long,String>{
 
                 // System.out.println("taille testProduit"+ testproduit.size());
                 Log.d("taille", testproduit.size()+"");
-*/
+            */
                 //TestManagerProduit.insert(testproduit);
 
 
-
-               /* for (Produit p : lesProds) {
+            /*
+               for (Produit p : lesProds) {
 
                     Manager_Produit.insert(ctx,p);
                     Log.d("nos produit", p.toString());
 
-                }*/
+                } */
 
                Log.d("produitBase",Manager_Produit.getAll(ctx).size()+"");
+
 
             }
 

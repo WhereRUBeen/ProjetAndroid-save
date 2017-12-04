@@ -34,15 +34,18 @@ public class Manager_Produit {
         cv.put(C.Produit.poid, produit.getPoid());
         cv.put(C.Unite.uniteDenomination,produit.getUnite().getDenomination());
         for (ImageList img: produit.getImageList()) {
+
+            Log.d("image",img.getSrc_img_mobile());
+
             cv.put(C.Src_image.produit_id,img.getProduit_id());
             cv.put(C.Src_image.src_img_mobile,img.getSrc_img_mobile());
 
-
-
-
+             Manager_src_image.insertImg(ctx,img);
 
         }
-       // cv.put(C.ImageList.produit_id,produit.getSrcImage().getProduit_id());
+        Log.d("produitBase2",Manager_src_image.getAllImage(ctx).size()+"");
+
+        // cv.put(C.ImageList.produit_id,produit.getSrcImage().getProduit_id());
       //  cv.put(C.Src_image.src_img_mobile,produit.getimageList().getImageList());
         cv.put(C.Produit.quantite,produit.getQuantite());
 
@@ -68,14 +71,8 @@ public class Manager_Produit {
             String description = c.getString(4);
             float prix = c.getFloat(5);
             float poid = c.getFloat(6);
-           // String unitedenolination = c.getString(7);
+            String uniteDenomination = c.getString(7);
           //  int unite_id = c.getInt(7);
-
-            int produit_id = c.getInt(9);
-            String src_img = c.getString(10);
-           // Manager_src_image.insertImg(ctx,img);
-            Log.d("produitBase2",Manager_src_image.getAllImage(ctx)+"");
-
 
             //String unite = c.getString(7);
            Produit s = new Produit(id, nom,  prix);
