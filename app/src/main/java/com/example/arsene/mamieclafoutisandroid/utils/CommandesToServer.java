@@ -38,9 +38,15 @@ public class CommandesToServer extends AsyncTask<String,Long,String> {
 
     ArrayList<Commande> lesCommandes;
 
-    public CommandesToServer(Context ctx, ArrayList<Produit> lesProduits) {
+    public CommandesToServer(Context ctx, ArrayList<Produit> lesProds) {
         this.ctx = ctx;
-        this.lesProduits = lesProduits;
+       // this.lesProduits = lesProds;
+
+
+        for (Produit p : lesProds ){
+            lesProduits.add(p);
+        }
+
         Log.d("cmd",lesProduits.size()+"");
     }
 
@@ -54,6 +60,7 @@ public class CommandesToServer extends AsyncTask<String,Long,String> {
 
         String retour="";
 
+        Log.d("cmd","dedans");
 
         HttpURLConnection connection = null;
         StringBuilder sb = new StringBuilder();
@@ -63,6 +70,8 @@ public class CommandesToServer extends AsyncTask<String,Long,String> {
         ParametresCommande param = new ParametresCommande();
         param.setUrl("soumettrecommande");
         param.setProduitList(lesProduits);
+
+        Log.d("cmd",param.getProduitList().size()+"");
 
         URL url = null;
         Gson gson = new Gson(); // pour envoyer la requete
