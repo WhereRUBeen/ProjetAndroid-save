@@ -45,7 +45,7 @@ public class BoutiqueCuisinieAdapter extends ArrayAdapter<Produit> {
 
         // set les composants
         nomProduit.setText(p.getNom());
-        prixProduit.setText(p.getPrix()+"");
+        prixProduit.setText(p.getPrix()+" $");
 
         return convertView;
     }

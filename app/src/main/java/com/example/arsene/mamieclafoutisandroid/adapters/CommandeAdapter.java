@@ -57,7 +57,7 @@ public class CommandeAdapter extends ArrayAdapter<Produit> {
 
         // set les composants
         textViewNomProduit.setText(produit.getNom());
-        textViewPrixProduit.setText(produit.getPrix()+"");
+        textViewPrixProduit.setText(produit.getPrix()+" $");
         textViewPrixTotal.setText(""+produit.getPrix()*produit.getQuantite());
 
 

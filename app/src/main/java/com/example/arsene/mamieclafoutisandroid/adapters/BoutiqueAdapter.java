@@ -77,7 +77,7 @@ public class BoutiqueAdapter extends ArrayAdapter<Produit> {
         Log.d("drawable",drawable+"");
         imageProduit.setImageDrawable(drawable);
         textViewNomProduit.setText(p.getNom());
-        textViewPrixProduit.setText(p.getPrix()+"");
+        textViewPrixProduit.setText(p.getPrix()+" $");
 
 
         return convertView;

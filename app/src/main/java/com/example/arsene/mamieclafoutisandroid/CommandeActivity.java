@@ -103,7 +103,7 @@ public class CommandeActivity extends Activity {
                CommandesToServer commandeto = new CommandesToServer(ctx,lesProduits);
                commandeto.execute();
 
-                
+
                 adapter.clear();
                 Toast.makeText(ctx, "Votre Commande a été envoyé.", Toast.LENGTH_LONG).show();
             }
