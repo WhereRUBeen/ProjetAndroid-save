@@ -6,16 +6,17 @@
     android:layout_height="match_parent"
     tools:context="com.example.arsene.mamieclafoutisandroid.ConnexionActivity"
     android:orientation="vertical"
+    android:gravity="center"
     android:background="@drawable/loginbg3">
 
 
 
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:layout_gravity="center"
+            android:textAlignment="center"
             android:text="Connexion"
             android:textSize="30sp"
             android:textColor="@color/colorMamierose"/>
@@ -27,7 +28,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="35dp"
             android:layout_weight="1"
@@ -56,7 +57,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="35dp"
             android:layout_weight="1"
@@ -81,12 +82,12 @@
     </LinearLayout>
         <Button
             android:id="@+id/bttnConnexion"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="  Connexion  "
             android:background="@color/colorMamierose"
             android:layout_marginTop="50dp"
             android:textColor="@color/textColor"
-            android:layout_gravity="center_horizontal"/>
+            />
     </LinearLayout>
 
