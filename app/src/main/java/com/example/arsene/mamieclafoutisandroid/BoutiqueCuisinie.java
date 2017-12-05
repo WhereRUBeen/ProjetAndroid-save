@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -29,6 +30,7 @@ import entities.Categorie;
 import entities.Produit;
 import managers.ManagerCategorie;
 import managers.ManagerProduitPanier;
+import managers.Manager_Produit;
 
 public class BoutiqueCuisinie extends Activity {
     Context ctx;
@@ -80,7 +82,8 @@ public class BoutiqueCuisinie extends Activity {
         // les Arraylists contenant les produits
         lesProduits = new ArrayList<>();
         //lesProduits = Manager_Produit.getAll(ctx);
-        lesProduits = TestManagerProduit.getAll();
+        lesProduits = Manager_Produit.getAll(ctx);
+        Log.d("produit base",lesProduits.size()+"");
         testproduits = new ArrayList<>();   // contient tous les produits de toute catégories
         // testproduits = Manager_Produit.getAll(ctx);
         testproduits = TestManagerProduit.getAll();
@@ -99,6 +102,7 @@ public class BoutiqueCuisinie extends Activity {
 
         lesCategories = new ArrayList<>();
         lesCategories = ManagerCategorie.getAll(ctx);
+        Log.d("categories base", lesCategories.size()+"");
 
 
         // adpater spinner
@@ -155,7 +159,9 @@ public class BoutiqueCuisinie extends Activity {
                 System.out.println("nombre  produit : "+ selectionProduit.size());
                 System.out.println("nom produit: "+ selectionProduit.get(0).getCategorie().getDenomination() );
 
-
+                adapter = new BoutiqueCuisinieAdapter(ctx, R.layout.boutique_cuisinie_view, selectionProduit);
+                // set listView adapter
+                boutiqueLv.setAdapter(adapter);
 
             }
 
@@ -164,17 +170,6 @@ public class BoutiqueCuisinie extends Activity {
 
             }
         });
-
-
-
-        // set adapter
-        if (adapter == null) {
-            adapter = new BoutiqueCuisinieAdapter(ctx, R.layout.boutique_cuisinie_view, selectionProduit);
-        }else {
-            adapter.notifyDataSetChanged();
-        }
-        // set listView adapter
-        boutiqueLv.setAdapter(adapter);
 
         // listen sur la listView
         boutiqueLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -218,10 +213,10 @@ public class BoutiqueCuisinie extends Activity {
 
                 // set les composants
                 nom.setText(produitCourrant.getNom());
-
-                // quantite produit
-                int quantite = 0;
-
+                categorie.setText(produitCourrant.getCategorie().getDenomination());
+                prix.setText(produitCourrant.getPrix()+" $");
+                poids.setText(produitCourrant.getPoid()+"");
+                description.setText(produitCourrant.getDescription());
 
 
                 //ajout quantite produit

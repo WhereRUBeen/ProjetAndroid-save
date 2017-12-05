@@ -91,7 +91,8 @@ public class BoutiqueActivity extends Activity {
         // les Arraylists contenant les produits
         lesProduits = new ArrayList<Produit>();
         //lesProduits = Manager_Produit.getAll(ctx);
-        lesProduits = TestManagerProduit.getAll();
+        lesProduits = Manager_Produit.getAll(ctx);
+        Log.d("produit base",lesProduits.size()+"");
         selectionProduit = new ArrayList<Produit>();
         selectionProduit.addAll(lesProduits);
         testproduits = new ArrayList<Produit>();   // contient tous les produits de toute catégories
@@ -100,6 +101,7 @@ public class BoutiqueActivity extends Activity {
 
         lesCategories = new ArrayList<>();
         lesCategories = ManagerCategorie.getAll(ctx);
+        Log.d("categories base", lesCategories.size()+"");
         spinner = (Spinner) findViewById(R.id.spinnerBoutiqueCategorie);
 
 
@@ -227,6 +229,10 @@ public class BoutiqueActivity extends Activity {
 
                 // set les composants
                 nom.setText(produitCourrant.getNom());
+                categorie.setText(produitCourrant.getCategorie().getDenomination());
+                prix.setText(produitCourrant.getPrix()+" $");
+                poids.setText(produitCourrant.getPoid()+" ");
+                description.setText(produitCourrant.getDescription());
 
                 //ajout quantite produit
                 ajoutQuantite.setOnClickListener(new View.OnClickListener() {
@@ -235,7 +241,8 @@ public class BoutiqueActivity extends Activity {
                         Toast.makeText(ctx, "+", Toast.LENGTH_LONG).show();
 
                         // addition quantite
-                        //affichageQuantite.setText();
+                        produitCourrant.setQuantite(produitCourrant.getQuantite()+1);
+                        affichageQuantite.setText(""+ produitCourrant.getQuantite());
                     }
                 });
 
@@ -246,7 +253,11 @@ public class BoutiqueActivity extends Activity {
                         Toast.makeText(ctx, "-", Toast.LENGTH_LONG).show();
 
                         // retrait quantite
-                        //affichageQuantite.setText();
+                        if (produitCourrant.getQuantite() > 0){
+                            produitCourrant.setQuantite(produitCourrant.getQuantite()-1);
+                        }
+                        // retrait quantite
+                        affichageQuantite.setText(""+produitCourrant.getQuantite());
 
                     }
                 });

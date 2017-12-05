@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -26,6 +27,7 @@ import TestManagers.TestManagerProduit;
 import entities.Categorie;
 import entities.Produit;
 import managers.ManagerCategorie;
+import managers.Manager_Produit;
 
 public class BoutiqueCorporate extends Activity {
     Context ctx;
@@ -62,11 +64,13 @@ public class BoutiqueCorporate extends Activity {
         boutiqueLv = (ListView) findViewById(R.id.boutiqueCorpListView); // getListView
 
         lesProduits = new ArrayList<>();
-        lesProduits = TestManagerProduit.getAll();
+        lesProduits = Manager_Produit.getAll(ctx);
+        Log.d("produit base",lesProduits.size()+"");
         System.out.println("boutique corp prod "+ lesProduits.size());
         // init les categories
         lesCategories = new ArrayList<>();
         lesCategories = ManagerCategorie.getAll(ctx);
+        Log.d("categories base", lesCategories.size()+"");
 
         // init selectionProduit
         selectionProduit = new ArrayList<Produit>();
@@ -115,6 +119,12 @@ public class BoutiqueCorporate extends Activity {
                 System.out.println("nombre  produit : "+ selectionProduit.size());
                 System.out.println("nom produit: "+ selectionProduit.get(0).getCategorie().getDenomination() );
 
+                // get adapter listView
+                adapter = new BoutiqueCorporateAdapter(ctx,R.layout.boutique_corporate_view,lesProduits);
+                System.out.println("boutique corp prod "+ lesProduits.size());
+                //set adapter listView
+                boutiqueLv.setAdapter(adapter);
+
 
             }
 
@@ -124,11 +134,6 @@ public class BoutiqueCorporate extends Activity {
             }
         });
 
-        // get adapter listView
-        adapter = new BoutiqueCorporateAdapter(ctx,R.layout.boutique_corporate_view,lesProduits);
-        System.out.println("boutique corp prod "+ lesProduits.size());
-        //set adapter listView
-        boutiqueLv.setAdapter(adapter);
 
         //listener sur la listView
         boutiqueLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -153,15 +158,22 @@ public class BoutiqueCorporate extends Activity {
                 dialog.show();
 
 
-                // les composants du layout
+                // get les composants du layout
                 nom = (TextView) dialog.findViewById(R.id.detailsProd_nom);
                 categorie =(TextView) dialog.findViewById(R.id.detailsProd_categorie);
-                prix =(TextView) findViewById(R.id.detailsProd_prix);
-                poids = (TextView) findViewById(R.id.detailsProd_poix);
-                unite =(TextView) findViewById(R.id.detailsProd_unite);
-                description = (TextView) findViewById(R.id.detailsProd_desc);
-                recette =(TextView) findViewById(R.id.detailsProd_recette);
+                prix =(TextView) dialog.findViewById(R.id.detailsProd_prix);
+                poids = (TextView) dialog.findViewById(R.id.detailsProd_poix);
+                unite =(TextView) dialog.findViewById(R.id.detailsProd_unite);
+                description = (TextView) dialog.findViewById(R.id.detailsProd_desc);
+                recette =(TextView) dialog.findViewById(R.id.detailsProd_recette);
 
+
+                // set les composants
+                nom.setText(produitCourrant.getNom());
+                categorie.setText(produitCourrant.getCategorie().getDenomination());
+                prix.setText(produitCourrant.getPrix()+" $");
+                poids.setText(produitCourrant.getPoid()+"");
+                description.setText(produitCourrant.getDescription());
 
             }
         });
