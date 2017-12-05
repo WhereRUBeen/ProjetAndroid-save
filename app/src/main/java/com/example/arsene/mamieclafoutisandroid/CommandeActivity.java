@@ -3,12 +3,15 @@ package com.example.arsene.mamieclafoutisandroid;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -112,5 +115,26 @@ public class CommandeActivity extends Activity {
 
         ActionBar bar = getActionBar();
         bar.setBackgroundDrawable(new ColorDrawable(Color.rgb(255,204,204)));
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_bar, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        String msg = "";
+
+        switch (item.getItemId()){
+
+            case R.id.deconnection:
+                msg = "Vous etes deconnecter";
+                Intent intent = new Intent(ctx,ConnexionActivity.class);
+                CommandeActivity.this.finish();
+                startActivity(intent);
+        }
+        Toast.makeText(getBaseContext(), msg, Toast.LENGTH_SHORT).show();
+        return super.onOptionsItemSelected(item);
     }
 }

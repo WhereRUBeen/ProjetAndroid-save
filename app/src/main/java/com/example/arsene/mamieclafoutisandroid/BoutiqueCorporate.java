@@ -10,6 +10,8 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -189,5 +191,30 @@ public class BoutiqueCorporate extends Activity {
         Intent intent = new Intent();
         intent.setClass(ctx,ConnexionActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_bar, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        String msg = "";
+
+        switch (item.getItemId()){
+            case R.id.chargement_base:
+                msg = "Votre base de produit est a jour";
+                break;
+
+            case R.id.deconnection:
+                msg = "Vous etes deconnecter";
+                Intent intent = new Intent(ctx,ConnexionActivity.class);
+                BoutiqueCorporate.this.finish();
+                startActivity(intent);
+        }
+        Toast.makeText(getBaseContext(), msg, Toast.LENGTH_SHORT).show();
+        return super.onOptionsItemSelected(item);
     }
 }

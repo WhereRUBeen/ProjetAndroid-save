@@ -13,6 +13,7 @@ import android.os.Bundle;
 
 import android.util.Log;
 
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -301,5 +302,29 @@ public class BoutiqueActivity extends Activity {
         Intent intent = new Intent();
         intent.setClass(ctx,ConnexionActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_bar, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        String msg = "";
+
+        switch (item.getItemId()){
+            case R.id.chargement_base:
+                msg = "Votre base de produit est a jour";
+                break;
+
+            case R.id.deconnection:
+                msg = "Vous etes deconnecter";
+                Intent intent = new Intent(ctx,ConnexionActivity.class);
+                BoutiqueActivity.this.finish();
+                startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

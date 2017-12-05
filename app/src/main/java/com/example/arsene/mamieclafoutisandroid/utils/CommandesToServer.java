@@ -125,6 +125,8 @@ public class CommandesToServer extends AsyncTask<String,Long,String> {
     protected void onPostExecute(String s) {
         Log.d("cmd","onPostExecute "+ s);
 
+
+
     }
 }
 
