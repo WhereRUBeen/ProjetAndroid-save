@@ -34,6 +34,7 @@ public class C {
     public static String urlSendCommande115="http://192.168.15.115:8080/mamie_clafoutis_Projet_final/GestionCommande";
 
     public static String urlSendCommandeBibi="http://172.16.42.246:8080/mamie_clafoutis_Projet_final/GestionCommande";
+    public static String urlSendCommandeHugo="http://172.168.15.92:8080/mamie_clafoutis_Projet_final/GestionCommande";
 
 
 

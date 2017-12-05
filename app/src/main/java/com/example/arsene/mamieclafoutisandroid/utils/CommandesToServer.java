@@ -57,7 +57,7 @@ public class CommandesToServer extends AsyncTask<String,Long,String> {
 
         HttpURLConnection connection = null;
         StringBuilder sb = new StringBuilder();
-        String requestURL = C.urlSendCommandeBibi;  // A COMPLETER
+        String requestURL = C.urlSendCommandeHugo;  // A COMPLETER
         Log.d("cmd",requestURL);
 
         ParametresCommande param = new ParametresCommande();

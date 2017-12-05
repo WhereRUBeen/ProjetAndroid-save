@@ -39,10 +39,6 @@ public class IngredientAdapter extends ArrayAdapter<Ingredient> {
             convertView = inflater.inflate(layoutid,null);
         }
 
-        TextView ingredienttv = convertView.findViewById(R.id.ingredienttv);
-        TextView quantitetv = convertView.findViewById(R.id.quantitetv);
-        TextView descriptiontv = convertView.findViewById(R.id.descriptiontv);
-
 
 
         return convertView;

@@ -57,43 +57,43 @@
                     android:id="@+id/actProd_nom"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="NOM"
+                    android:text=""
                     android:textAlignment="center"/>
                 <TextView
                     android:id="@+id/actProd_categorie"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="NOM"/>
+                    android:text=""/>
                 <TextView
                     android:id="@+id/actProd_prix"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="NOM"/>
+                    android:text=""/>
 
                 <TextView
                     android:id="@+id/actProd_poix"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="NOM"/>
+                    android:text=""/>
                 <TextView
                     android:id="@+id/actProd_unite"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="NOM"/>
+                    android:text=""/>
                 <TextView
                     android:id="@+id/actProd_desc"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="NOM"/>
+                    android:text=""/>
                 <TextView
                     android:id="@+id/actProd_recette"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="NOM"/>
+                    android:text=""/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="NOM"/>
+                    android:text=""/>
 
             </LinearLayout>
 

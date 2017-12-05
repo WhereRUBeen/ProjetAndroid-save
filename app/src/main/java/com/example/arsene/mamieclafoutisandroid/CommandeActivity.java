@@ -69,7 +69,7 @@ public class CommandeActivity extends Activity {
                     @Override
                     public void onClick(View view) {
                         adapter.remove(produit);
-                        Toast.makeText(ctx, "Your Message", Toast.LENGTH_LONG).show();
+
 
                     }
                 });
@@ -98,6 +98,11 @@ public class CommandeActivity extends Activity {
 
                 new SharedPreferenceCommande(ctx,lesProduits);
                new CommandesToServer(ctx,lesProduits).execute();
+
+
+
+                adapter.clear();
+                Toast.makeText(ctx, "Votre Commande a été envoyé.", Toast.LENGTH_LONG).show();
             }
         });
 

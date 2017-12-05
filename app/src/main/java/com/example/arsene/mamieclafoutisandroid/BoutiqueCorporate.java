@@ -99,10 +99,11 @@ public class BoutiqueCorporate extends Activity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
                 selectionProduit = new ArrayList<Produit>();
                 selectionProduit.addAll(lesProduits);
                 String selected = adapterView.getItemAtPosition(i).toString();
-                Toast.makeText(ctx, selected, Toast.LENGTH_SHORT).show();
+             //   Toast.makeText(ctx, selected, Toast.LENGTH_SHORT).show();
 
                 System.out.println("taille initiale :"+ lesProduits.size());
                 // List<Produit> toRemove = new ArrayList<>();
@@ -120,7 +121,7 @@ public class BoutiqueCorporate extends Activity {
                 System.out.println("nom produit: "+ selectionProduit.get(0).getCategorie().getDenomination() );
 
                 // get adapter listView
-                adapter = new BoutiqueCorporateAdapter(ctx,R.layout.boutique_corporate_view,lesProduits);
+                adapter = new BoutiqueCorporateAdapter(ctx,R.layout.boutique_corporate_view,selectionProduit);
                 System.out.println("boutique corp prod "+ lesProduits.size());
                 //set adapter listView
                 boutiqueLv.setAdapter(adapter);

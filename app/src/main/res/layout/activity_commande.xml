@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ma Commande"
+        android:text="Mon Panier"
         android:textColor="@color/textColor"
         android:textSize="@dimen/textSize"
         android:gravity="center"
@@ -19,7 +19,8 @@
     <ListView
         android:id="@+id/commandeListeView"
         android:layout_width="match_parent"
-        android:layout_height="350dp">
+        android:layout_height="400dp"
+        android:layout_marginTop="@dimen/marginTop">
 
     </ListView>
 

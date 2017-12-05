@@ -141,7 +141,7 @@ public class BoutiqueCuisinie extends Activity {
                 selectionProduit = new ArrayList<Produit>();
                 selectionProduit.addAll(lesProduits);
                 String selected = adapterView.getItemAtPosition(i).toString();
-                Toast.makeText(ctx, selected, Toast.LENGTH_SHORT).show();
+               // Toast.makeText(ctx, selected, Toast.LENGTH_SHORT).show();
 
 
                 System.out.println("taille initiale :"+ lesProduits.size());
@@ -176,7 +176,7 @@ public class BoutiqueCuisinie extends Activity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 produitCourrant = (Produit) adapterView.getItemAtPosition(i);
-                Toast.makeText(ctx, produitCourrant.getNom(), Toast.LENGTH_SHORT).show();
+               // Toast.makeText(ctx, produitCourrant.getNom(), Toast.LENGTH_SHORT).show();
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
                 builder.setTitle("Ajouter au panier");
@@ -223,7 +223,7 @@ public class BoutiqueCuisinie extends Activity {
                 ajoutQuantite.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Toast.makeText(ctx, "+", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(ctx, "+", Toast.LENGTH_LONG).show();
 
                         produitCourrant.setQuantite(produitCourrant.getQuantite()+1);
                         affichageQuantite.setText(""+ produitCourrant.getQuantite());
@@ -234,7 +234,7 @@ public class BoutiqueCuisinie extends Activity {
                 enleveQuantite.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Toast.makeText(ctx, "-", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(ctx, "-", Toast.LENGTH_LONG).show();
 
                         if (produitCourrant.getQuantite() > 0){
                             produitCourrant.setQuantite(produitCourrant.getQuantite()-1);

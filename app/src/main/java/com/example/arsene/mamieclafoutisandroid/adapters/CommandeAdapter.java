@@ -62,14 +62,9 @@ public class CommandeAdapter extends ArrayAdapter<Produit> {
 
 
 
-
-
-
-
         bttnRetirerCommande.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(ctx, "click", Toast.LENGTH_LONG).show();
 
                 remove(produit);
             }

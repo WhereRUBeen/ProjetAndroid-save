@@ -48,7 +48,7 @@
     <ListView
         android:id="@+id/boutiqueListView"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="320dp"
        >
 
     </ListView>
@@ -59,7 +59,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
         <Button
             android:id="@+id/bttnMaCommande"
             android:layout_width="wrap_content"
@@ -67,7 +68,8 @@
             android:layout_gravity="center"
             android:background="@color/colorMamierose"
             android:text="  Mes Commandes  "
-            android:textColor="@color/textColor"/>
+            android:textColor="@color/textColor"
+          />
 
 
     </LinearLayout>

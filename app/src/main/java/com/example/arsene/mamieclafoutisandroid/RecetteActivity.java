@@ -30,16 +30,9 @@ public class RecetteActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recette);
 
-        btnmodifier = (Button) findViewById(R.id.recettem);
 
 
 
-        btnmodifier.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
 
     }
 }

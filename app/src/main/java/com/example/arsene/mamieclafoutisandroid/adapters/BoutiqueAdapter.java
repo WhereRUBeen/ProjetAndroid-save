@@ -67,24 +67,10 @@ public class BoutiqueAdapter extends ArrayAdapter<Produit> {
         TextView textViewPrixProduit = convertView.findViewById(R.id.textViewBoutiquePrixProd);
 
 
-       // for(ImageList img : lesImages){
+        for(ImageList img : lesImages){
+            Log.d("lien",img.getSrc_img_mobile()+"");
 
-            handler.post(new Runnable() {
-                @Override
-                public void run() {
-
-                    for (ImageList img : lesImages){
-                        Log.d("lien",img.getSrc_img_mobile()+"");
-                        drawable = DisplayImage.loadImageFromWebOperations(img.getSrc_img_mobile());
-
-                    }
-
-                }
-            });
-
-
-
-       // }
+       }
 
         // set les composants
         // image

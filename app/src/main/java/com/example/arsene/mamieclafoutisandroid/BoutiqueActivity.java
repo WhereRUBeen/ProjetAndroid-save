@@ -136,7 +136,7 @@ public class BoutiqueActivity extends Activity {
                 selectionProduit = new ArrayList<Produit>();
                 selectionProduit.addAll(lesProduits);
                 String selected = adapterView.getItemAtPosition(i).toString();
-                Toast.makeText(ctx, selected, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(ctx, selected, Toast.LENGTH_SHORT).show();
 
 
 
@@ -179,14 +179,6 @@ public class BoutiqueActivity extends Activity {
 
         });
 
-        // set listViewAdpater
-
-       // boutiqueLv.setAdapter(null);
-       // boutiqueLv.setAdapter(adapter);// on passe les produits dans notre adapatateur;
-       // Log.d("boutique","boutique listView");
-
-        // action bar color
-        // get le role + condition pour des couleurs differente pour chaque role
 
         ActionBar bar = getActionBar();
         bar.setBackgroundDrawable(new ColorDrawable(Color.rgb(255,204,204)));
@@ -198,7 +190,7 @@ public class BoutiqueActivity extends Activity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
                 produitCourrant = (Produit) adapterView.getItemAtPosition(i);
-                Toast.makeText(ctx, produitCourrant.getNom(), Toast.LENGTH_SHORT).show();
+               // Toast.makeText(ctx, produitCourrant.getNom(), Toast.LENGTH_SHORT).show();
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
                 builder.setTitle("Ajouter au panier");
@@ -236,15 +228,15 @@ public class BoutiqueActivity extends Activity {
                 // set les composants
                 nom.setText(produitCourrant.getNom());
                 //categorie.setText(produitCourrant.getCategorie().getDenomination());
-                prix.setText(produitCourrant.getPrix()+" $");
-                poids.setText(produitCourrant.getPoid()+" ");
-                description.setText(produitCourrant.getDescription());
+                prix.setText(" Prix : "+produitCourrant.getPrix()+" $");
+                poids.setText(" Poids : "+produitCourrant.getPoid()+"");
+                description.setText(" Description : "+produitCourrant.getDescription());
 
                 //ajout quantite produit
                 ajoutQuantite.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Toast.makeText(ctx, "+", Toast.LENGTH_LONG).show();
+                      //  Toast.makeText(ctx, "+", Toast.LENGTH_LONG).show();
 
                         // addition quantite
                         produitCourrant.setQuantite(produitCourrant.getQuantite()+1);
@@ -256,7 +248,7 @@ public class BoutiqueActivity extends Activity {
                 enleveQuantite.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Toast.makeText(ctx, "-", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(ctx, "-", Toast.LENGTH_LONG).show();
 
                         // retrait quantite
                         if (produitCourrant.getQuantite() > 0){
