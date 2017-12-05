@@ -10,6 +10,7 @@ import com.example.arsene.mamieclafoutisandroid.utils.Mydb;
 
 import java.util.ArrayList;
 
+import entities.Categorie;
 import entities.ImageList;
 import entities.Produit;
 import services.C;
@@ -72,11 +73,13 @@ public class Manager_Produit {
             float prix = c.getFloat(5);
             float poid = c.getFloat(6);
             String uniteDenomination = c.getString(7);
+            int quantite = c.getInt(10);
           //  int unite_id = c.getInt(7);
 
             //String unite = c.getString(7);
-           Produit s = new Produit(id, nom,  prix);
-           retour.add(s);
+          // Produit s = new Produit(id, nom,  prix);
+           Produit produit = new Produit(id,nom,new Categorie(id_categorie,denomination),description,prix,poid,quantite);
+           retour.add(produit);
         }
         return retour;
 

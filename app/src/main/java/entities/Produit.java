@@ -44,6 +44,7 @@ public class Produit implements Serializable{
         this.quantite = quantite;
     }
 
+    //
     public Produit(int id, String nom, String description, Float prix, String reference, Float poid, int unite_id) {
         this.id = id;
         this.nom = nom;
@@ -62,6 +63,20 @@ public class Produit implements Serializable{
         this.nom = nom;
         this.prix = prix;
     }
+
+
+    // constructeur
+
+    public Produit(int id, String nom, Categorie categorie, String description, Float prix, Float poid, int quantite) {
+        this.id = id;
+        this.nom = nom;
+        this.categorie = categorie;
+        this.description = description;
+        this.prix = prix;
+        this.poid = poid;
+        this.quantite = quantite;
+    }
+
 /*
     //constructeur testManager avec id catégorie
     public Produit(int id, String nom, int categorie_id, Float prix) {

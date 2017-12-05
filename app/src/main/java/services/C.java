@@ -7,18 +7,20 @@ package services;
 public class C {
 
     public static String adresseIp="http://192.168.15.117:8080/mamie_clafoutis_Projet_final/";
+
     public static String adresseBibi="http://172.16.42.246:8080/mamie_clafoutis_Projet_final/";
-    public static String adresseHugo="http://192.168.15.102:8080/mamie_clafoutis_Projet_final/";
+    public static String adresseIpHugo="http://192.168.15.92:8080/mamie_clafoutis_Projet_final/";
 
     public static String urlGetProduits="http://192.168.15.117:8080/mamie_clafoutis_Projet_final/GestionProduitMobile";
 
     public static String urlGetProduitsBU="http://172.16.42.139:8080/mamie_clafoutis_Projet_final/GestionProduitMobile";
-    public static String urlGetProduitsHugo="http://192.168.15.102:8080/mamie_clafoutis_Projet_final/GestionProduitMobile";
+    public static String urlGetProduitsHugo="http://192.168.15.92:8080/mamie_clafoutis_Projet_final/GestionProduitMobile";
 
     public static String adresseIp78="http://192.168.15.78:8080/mamie_clafoutis_Projet_final/";
 
     public static String adresseIp78BU="http://172.16.42.139:8080/mamie_clafoutis_Projet_final/";
-    public static String urlGetCategorie="http://192.168.15.78:8080/mamie_clafoutis_Projet_final/AffichageCategorie";
+    public static String urlGetCategorie="http://192.168.15.177:8080/mamie_clafoutis_Projet_final/AffichageCategorie";
+    public static String urlGetCategorieHugo="http://192.168.15.92:8080/mamie_clafoutis_Projet_final/AffichageCategorie";
     public static String urlGetCategorieBU="http://172.16.42.139:8080/mamie_clafoutis_Projet_final/AffichageCategorie";
 
     public static String urlGetProduits78="http://192.168.15.78:8080/mamie_clafoutis_Projet_final/GestionProduitMobile";

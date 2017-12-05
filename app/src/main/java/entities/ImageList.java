@@ -12,9 +12,9 @@ public class ImageList implements Serializable{
     private String imageList;
     private int produit_id;
 
-    public ImageList(int id, String imageList, int produit_id) {
+    public ImageList(int id, String src_img_mobile, int produit_id) {
         this.id = id;
-        this.imageList = imageList;
+        this.src_img_mobile = src_img_mobile;
         this.produit_id = produit_id;
     }
 

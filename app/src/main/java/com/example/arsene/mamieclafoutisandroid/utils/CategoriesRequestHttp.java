@@ -40,7 +40,7 @@ public class CategoriesRequestHttp extends AsyncTask<String, Long,String>{
         HttpURLConnection connection = null;
         StringBuilder sb = new StringBuilder();
 
-        String requestURL = C.urlGetCategorieBU; // A COMPLETER
+        String requestURL = C.urlGetCategorieHugo; // A COMPLETER
         Gson gson = new Gson();
 
         ParametresProduit p = new ParametresProduit();
@@ -97,7 +97,7 @@ public class CategoriesRequestHttp extends AsyncTask<String, Long,String>{
 
                 Categorie[] lesCatégories = gson.fromJson(s,Categorie[].class);
 
-                Log.d("categore",lesCatégories.length+"");
+                Log.d("categorie",lesCatégories.length+"");
                 TypeToken<ArrayList<Categorie>> token = new TypeToken<ArrayList<Categorie>>(){};
                 ArrayList<Categorie> testCategories = new ArrayList<>();
                 testCategories = gson.fromJson(s,token.getType());

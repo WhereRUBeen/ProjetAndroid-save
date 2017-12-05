@@ -36,11 +36,13 @@ import java.util.List;
 
 import TestManagers.TestManagerProduit;
 import entities.Categorie;
+import entities.ImageList;
 import entities.Produit;
 import managers.ManagerCategorie;
 import managers.ManagerProduitPanier;
 
 import managers.Manager_Produit;
+import managers.Manager_src_image;
 
 
 public class BoutiqueActivity extends Activity {
@@ -75,7 +77,10 @@ public class BoutiqueActivity extends Activity {
 
     //spinner boutique
     Spinner spinner;
-    ArrayAdapter<String> spinnerAdapter ;
+    ArrayAdapter<String> spinnerAdapter;
+
+    //Arraylist contenant les Images
+    ArrayList<ImageList> lesImages;
 
 
 
@@ -104,10 +109,10 @@ public class BoutiqueActivity extends Activity {
         Log.d("categories base", lesCategories.size()+"");
         spinner = (Spinner) findViewById(R.id.spinnerBoutiqueCategorie);
 
-
-
-        // init adapter
-        //adapter = new BoutiqueAdapter(ctx, R.layout.boutique_view, selectionProduit);
+        // set arraylist images
+        lesImages = new ArrayList<>();
+        lesImages = Manager_src_image.getAllImage(ctx);
+        Log.d("Images base", lesImages.size()+"");
 
 
 
@@ -154,6 +159,7 @@ public class BoutiqueActivity extends Activity {
                 //adapter.setNotifyOnChange(true);
                 //adapter.notifyDataSetChanged();
 
+
                 // set listViewAdpater
                 adapter = new BoutiqueAdapter(ctx, R.layout.boutique_view, selectionProduit);
                 System.out.println("nombre  produit hhhhh: "+ selectionProduit.size());
@@ -161,6 +167,7 @@ public class BoutiqueActivity extends Activity {
 
                 // boutiqueLv.setAdapter(null);
                 boutiqueLv.setAdapter(adapter);// on passe les produits dans notre adapatateur;
+
 
             }
 
@@ -172,12 +179,11 @@ public class BoutiqueActivity extends Activity {
 
         });
 
-
         // set listViewAdpater
 
        // boutiqueLv.setAdapter(null);
-        boutiqueLv.setAdapter(adapter);// on passe les produits dans notre adapatateur;
-        Log.d("boutique","boutique listView");
+       // boutiqueLv.setAdapter(adapter);// on passe les produits dans notre adapatateur;
+       // Log.d("boutique","boutique listView");
 
         // action bar color
         // get le role + condition pour des couleurs differente pour chaque role
@@ -229,7 +235,7 @@ public class BoutiqueActivity extends Activity {
 
                 // set les composants
                 nom.setText(produitCourrant.getNom());
-                categorie.setText(produitCourrant.getCategorie().getDenomination());
+                //categorie.setText(produitCourrant.getCategorie().getDenomination());
                 prix.setText(produitCourrant.getPrix()+" $");
                 poids.setText(produitCourrant.getPoid()+" ");
                 description.setText(produitCourrant.getDescription());
