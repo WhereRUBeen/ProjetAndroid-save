@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textSize="40dp"
+        android:textColor="@color/colorMamierose"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
         android:text="Recette" />
@@ -29,6 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:paddingLeft="40dp"
+            android:textColor="@color/colorMamierose"
             android:text="Ingredients" />
 
         <TextView
@@ -37,12 +39,13 @@
             android:layout_height="wrap_content"
             android:paddingLeft="40dp"
             android:layout_weight="1"
+            android:textColor="@color/colorMamierose"
             android:text="Quantité" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="350dp"
         android:layout_gravity="center"
         android:orientation="horizontal"
         android:weightSum="1">
@@ -51,38 +54,36 @@
             android:id="@+id/ingredientLV"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            
             android:layout_weight="70">
 
         </ListView>
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Description" />
+
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/descriptiontv"
-            android:layout_width="match_parent"
+        android:gravity="center">
+        <Button
+            android:id="@+id/recetteAjout"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_gravity="center"
+            android:textColor="@color/textColor"
+            android:background="@color/colorMamierose"
+            android:text="Ajouter" />
+
+        <Button
+            android:id="@+id/recetteRetour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="50dp"
+            android:textColor="@color/textColor"
+            android:background="@color/colorMamierose"
+            android:text="Retour" />
     </LinearLayout>
-
-    <Button
-        android:id="@+id/recettem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:paddingBottom="20dp"
-        android:paddingTop="20dp"
-        android:paddingLeft="25dp"
-        android:paddingRight="25dp"
-        android:text="Ajouter" />
-
 </LinearLayout>
