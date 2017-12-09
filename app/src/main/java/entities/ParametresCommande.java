@@ -6,8 +6,17 @@ import java.util.ArrayList;
 public class ParametresCommande implements Serializable{
 	String url;
 	ArrayList<Produit> produitList;
+	ArrayList<Commande> commandeList;
 	String token;
-	
+
+	public ArrayList<Commande> getCommandeList() {
+		return commandeList;
+	}
+
+	public void setCommandeList(ArrayList<Commande> commandeList) {
+		this.commandeList = commandeList;
+	}
+
 	public String getUrl() {
 		return url;
 	}

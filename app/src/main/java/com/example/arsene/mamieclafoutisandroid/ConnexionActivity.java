@@ -52,6 +52,14 @@ public class ConnexionActivity extends Activity {
         bttnConnexion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // validation simple des inputs
+                if (inputId.getText().toString().length() == 0){
+                    inputId.setError("Veuillez saisir votre nom");
+                }
+                if (inputPwd.getText().toString().length() == 0){
+                    inputPwd.setError("Veuillez saisir votre prenom");
+                }
+
 
                 String id = inputId.getText().toString();
                 String pwd = inputPwd.getText().toString();

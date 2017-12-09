@@ -1,32 +1,41 @@
 package com.example.arsene.mamieclafoutisandroid.utils;
 
-import android.graphics.drawable.Drawable;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.util.Log;
+import android.widget.ImageView;
 
 import java.io.InputStream;
-import java.net.URL;
+
 
 /**
  * Created by mayammouarangue on 05/12/17.
  */
 
-public class DisplayImage extends AsyncTask<String, Long, String> {
+public class DisplayImage extends AsyncTask<String, Void, Bitmap> {
+    ImageView bmImage;
 
-    public static Drawable loadImageFromWebOperations(String url) {
-        Drawable d = null;
+    public DisplayImage(ImageView bmImage) {
+        this.bmImage = bmImage;
+    }
+
+    protected Bitmap doInBackground(String... urls) {
+        String urldisplay = urls[0];
+        Bitmap mIcon11 = null;
         try {
-            InputStream is = (InputStream) new URL(url).getContent();
-           d = Drawable.createFromStream(is, "src name");
-
+            InputStream in = new java.net.URL(urldisplay).openStream();
+            mIcon11 = BitmapFactory.decodeStream(in);
         } catch (Exception e) {
+            Log.e("Error", e.getMessage());
             e.printStackTrace();
         }
-        return d;
+        return mIcon11;
+    }
+
+    protected void onPostExecute(Bitmap result) {
+        bmImage.setImageBitmap(result);
     }
 
 
-    @Override
-    protected String doInBackground(String... strings) {
-        return null;
-    }
 }

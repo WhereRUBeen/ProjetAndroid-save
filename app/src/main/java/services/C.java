@@ -7,6 +7,7 @@ package services;
 public class C {
 
     public static String adresseIp="http://192.168.15.117:8080/mamie_clafoutis_Projet_final/";
+    public static String ipTest="http://172.16.40.219:9080/mamie_clafoutis_Projet_final/";
 
     public static String adresseBibi="http://172.16.42.246:8080/mamie_clafoutis_Projet_final/";
     public static String adresseIpHugo="http://192.168.15.92:8080/mamie_clafoutis_Projet_final/";

@@ -69,6 +69,7 @@ public class CommandesToServer extends AsyncTask<String,Long,String> {
 
         ParametresCommande param = new ParametresCommande();
         param.setUrl("soumettrecommande");
+        //param.setUrl("affichercommandes");
         param.setProduitList(lesProduits);
 
         Log.d("cmd",param.getProduitList().size()+"");

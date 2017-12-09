@@ -11,11 +11,20 @@ public class ImageList implements Serializable{
     private String src_img_mobile;
     private String imageList;
     private int produit_id;
+    private String formatWeb;
 
     public ImageList(int id, String src_img_mobile, int produit_id) {
         this.id = id;
         this.src_img_mobile = src_img_mobile;
         this.produit_id = produit_id;
+    }
+
+    public String getFormatWeb() {
+        return formatWeb;
+    }
+
+    public void setFormatWeb(String formatWeb) {
+        this.formatWeb = formatWeb;
     }
 
     public String getImageList() {
